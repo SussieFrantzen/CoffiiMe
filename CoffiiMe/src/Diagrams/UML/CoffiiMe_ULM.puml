@@ -1,0 +1,257 @@
+@startuml
+
+'JAVA
+'//////////////////////////////////////////////
+package app{
+class App{
+}
+}
+
+
+package java{
+
+package coffeTypes{
+
+package americano{
+class Americano
+class AmericanoFactory
+}
+
+package caffeLatte{
+class CaffeLatte
+class CaffeLatteFactory
+}
+
+package cappoucciono{
+class Cappoucciono
+class CappouccionoFactory
+}
+
+package cortado{
+class Cortado
+class CortadoFactory
+}
+
+package expresso{
+class Expresso
+class ExpressoFactory
+}
+
+package flatWhite{
+class FlateWhite
+class FlateWhiteFactory
+}
+
+package latteMacchiato{
+class LatteMacchiato
+class LatteMacchiatoFactory
+}
+
+package lungo{
+class Lungo
+class LungoFactory
+}
+
+package macchiato{
+class Macchiato
+class MacchiatoFactory
+}
+
+package mocha{
+class Mocha
+class MochaFactory
+}
+}
+
+CoffeeFactory <|-- AmericanoFactory
+CoffeeFactory <|-- CaffeLatteFactory
+CoffeeFactory <|-- CappouccionoFactory
+CoffeeFactory <|-- CortadoFactory
+CoffeeFactory <|-- ExpressoFactory
+CoffeeFactory <|-- FlateWhiteFactory
+CoffeeFactory <|-- LatteMacchiatoFactory
+CoffeeFactory <|-- LungoFactory
+CoffeeFactory <|-- MacchiatoFactory
+CoffeeFactory <|-- MochaFactory
+
+
+'//////////////////////////////////////////////
+
+package addOns{
+abstract class AddOns
+
+class Milk {
++int: amount()
+}
+class Water {
++int: amount()
+}
+class Beans {
++int: amount
++String: CoffeBrands
++Color: color
++int: Solubility
+}
+}
+AddOns <|-- Milk
+AddOns <|-- Water
+AddOns <|-- Beans
+
+'//////////////////////////////////////////////
+
+package entities{
+class Users{
+- String: firstname
+- String: lastname
+- String: email
+- String: password
+}
+
+interface Bean{
+String: brand
+color: color
+int: solubility
+}
+
+interface Coffee{
+- Bean: type
+- int: milkQuantity
+- int: waterQuantity
+- int: caffeineQuantity
+}
+}
+
+ Coffe <|.. AddOns
+ Coffe <|... Americano
+ Coffe <|... CaffeLatte
+ Coffe <|... Cappoucciono
+ Coffe <|.. Cortado
+ Coffe <|... Expresso
+ Coffe <|... FlateWhite
+ Coffe <|... LatteMacchiato
+ Coffe <|... Lungo
+ Coffe <|... Macchiato
+ Coffe <|... Mocha
+
+ Coffe <... AmericanoFactory
+ Coffe <... CaffeLatteFactory
+ Coffe <... CappouccionoFactory
+ Coffe <... CortadoFactory
+ Coffe <... ExpressoFactory
+ Coffe <... FlateWhiteFactory
+ Coffe <... LatteMacchiatoFactory
+ Coffe <... LungoFactory
+ Coffe <... MacchiatoFactory
+ Coffe <... MochaFactory
+
+
+
+
+
+abstract class CoffeeFactory{
++ Coffee: coffe()
+}
+
+class Math{
+}
+package pesistences{
+class UserMapper{
++ boolean: login()
++ boolean: creatUser()
++ list: displayFavorits
+}
+}
+
+class ConnectionPool{
+- ConnectionPool: instance
+- HikariDatasource: ds
+- Logger: LOGGER
+- ConnectionPool: getInstance()
++ Connection: getConnection
++ void: close()
+- HikariDataSource: createHikariConnectionPool()
+}
+}
+
+'CONTROLLERS
+'/////////////////////////////////////
+package controllers{
+class UserController{
++ void: addRoutes()
++ boolean: creatUser
+}
+}
+
+'CONFIG
+'/////////////////////////////////////
+package config{
+class SessionConfig{
++ SessionHandler: sessionconfig()
+}
+
+class ThymeleafConfig{
++ TemplateEngine: templateEngine()
+}
+}
+
+'EXCEPTIONS
+'/////////////////////////////////////
+package exceptions{
+class DatabaseExceptions{}
+class exceptions{}
+}
+
+'RESOURCES
+package resources{
+
+'PUBLIC
+'/////////////////////////////////////
+package public{
+
+'HTML
+'/////////////////////////////////////////
+package templates{
+entity Index{}
+entity Login{}
+entity CreateAccount{}
+entity CoffeType{}
+entity CoffeBrands{}
+entity Options{}
+entity ColorPanel{}
+entity CreatingPanel{}
+entity AboutUs{}
+entity ContactUs{}
+entity Favorites{}
+}
+
+'CSS
+'/////////////////////////////////////////
+
+package css{
+entity StyleSheet{}
+}
+
+'JAVA SCRIPT
+'////////////////////////////////////////
+
+package js{
+entity ColorPanel{}
+entity CreatorPanel{}
+}
+
+'IMAGES
+'/////////////////////////////////////////
+
+package img{
+entity image{}
+}
+}
+}
+
+
+
+
+
+
+
+@enduml
