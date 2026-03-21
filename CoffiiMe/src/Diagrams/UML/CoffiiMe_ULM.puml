@@ -1,1 +1,411 @@
-Please wait. hoshi is working with a 'Add File to Git' dialog
+@startuml
+
+'JAVA
+'//////////////////////////////////////////////
+package app{
+class App{
+}
+}
+
+
+package java{
+
+package coffeeTypes{
+
+package americano{
+class Americano{
+- Color: color
+- int: volume
+- Map: ingredients
++ Color: getColor()
++ int: getVolume()
++ Map: getIngredients()
+}
+class AmericanoFactory{
++ Coffee: createCoffee(String type)
+}
+
+}
+
+package caffeLatte{
+class CaffeLatte{
+- Color: color
+- int: volume
+- Map: ingredients
++ Color: getColor()
++ int: getVolume()
++ Map: getIngredients()
+}
+class CaffeLatteFactory{
++ Coffee: createCoffee(String type)
+}
+}
+
+package cappoucciono{
+class Cappoucciono{
+- Color: color
+- int: volume
+- Map: ingredients
++ Color: getColor()
++ int: getVolume()
++ Map: getIngredients()
+}
+class CappouccionoFactory{
++ Coffee: createCoffee(String type)
+}
+}
+
+package cortado{
+class Cortado{
+- Color: color
+- int: volume
+- Map: ingredients
++ Color: getColor()
++ int: getVolume()
++ Map: getIngredients()
+}
+
+class CortadoFactory{
++ Coffee: createCoffee(String type)
+}
+}
+
+package expresso{
+class Expresso{
+- Color: color
+- int: volume
+- Map: ingredients
++ Color: getColor()
++ int: getVolume()
++ Map: getIngredients()
+}
+
+class ExpressoFactory{
++ Coffee: createCoffee(String type)
+}
+}
+
+package flatWhite{
+class FlateWhite{
+- Color: color
+- int: volume
+- Map: ingredients
++ Color: getColor()
++ int: getVolume()
++ Map: getIngredients()
+}
+class FlateWhiteFactory{
++ Coffee: createCoffee(String type)
+}
+}
+
+package latteMacchiato{
+class LatteMacchiato{
+- Color: color
+- int: volume
+- Map: ingredients
++ Color: getColor()
++ int: getVolume()
++ Map: getIngredients()
+}
+class LatteMacchiatoFactory{
++ Coffee: createCoffee(String type)
+}
+}
+
+package lungo{
+class Lungo{
+- Color: color
+- int: volume
+- Map: ingredients
++ Color: getColor()
++ int: getVolume()
++ Map: getIngredients()
+}
+
+class LungoFactory{
++ Coffee: createCoffee(String type)
+}
+}
+
+package macchiato{
+class Macchiato{
+- Color: color
+- int: volume
+- Map: ingredients
++ Color: getColor()
++ int: getVolume()
++ Map: getIngredients()
+ }
+class MacchiatoFactory{
++ Coffee: createCoffee(String type)
+}
+}
+
+package mocha{
+class Mocha{
+- Color: color
+- int: volume
+- Map: ingredients
++ Color: getColor()
++ int: getVolume()
++ Map: getIngredients()
+}
+
+class MochaFactory{
++ Coffee: createCoffee(String type)
+}
+}
+}
+
+CoffeeFactory <|..up.. AmericanoFactory
+CoffeeFactory <|..up.. CaffeLatteFactory
+CoffeeFactory <|..up.. CappouccionoFactory
+CoffeeFactory <|..up.. CortadoFactory
+CoffeeFactory <|..up.. ExpressoFactory
+CoffeeFactory <|..up.. FlateWhiteFactory
+CoffeeFactory <|..up.. LatteMacchiatoFactory
+CoffeeFactory <|..up.. LungoFactory
+CoffeeFactory <|..up.. MacchiatoFactory
+CoffeeFactory <|..up.. MochaFactory
+
+
+'//////////////////////////////////////////////
+
+package ingredients{
+abstract class Ingredients{
+protected Coffee coffee;
++ Color: getColor()
++ int: getVolume()
++ Map: getIngredients()
+}
+
+class Milk {
++ Color: getColor()
++ int: getVolume()
++ Map: getIngredients()
+}
+class Water {
++ Color: getColor()
++ int: getVolume()
++ Map: getIngredients()
+}
+
+package beansType{
+class BeanNestle {
++ Color: getColor()
++ int: getVolume()
++ Map: getIngredients()
+}
+
+class BeanMerild {
++ Color: getColor()
++ int: getVolume()
++ Map: getIngredients()
+}
+
+class BeanDavidoff {
++ Color: getColor()
++ int: getVolume()
++ Map: getIngredients()
+}
+}
+
+}
+Ingredients <|-- Milk
+Ingredients <|-- Water
+Ingredients <|-- BeanNestle
+Ingredients <|-- BeanMerild
+Ingredients <|-- BeanDavidoff
+
+'//////////////////////////////////////////////
+
+package entities{
+class Users{
+- String: firstname
+- String: lastname
+- String: email
+- String: password
+}
+
+interface Bean{
+String: brand
+color: color
+int: solubility
+}
+
+interface Coffee{
++ Color: getColor()
++ int: getVolume()
++ Map: getIngredients()
+}
+}
+
+ Coffee <|.up.. Ingredients
+ Coffee <|... Americano
+ Coffee <|... CaffeLatte
+ Coffee <|... Cappoucciono
+ Coffee <|... Cortado
+ Coffee <|... Expresso
+ Coffee <|... FlateWhite
+ Coffee <|... LatteMacchiato
+ Coffee <|... Lungo
+ Coffee <|... Macchiato
+ Coffee <|... Mocha
+
+ Coffee <... AmericanoFactory
+ Coffee <... CaffeLatteFactory
+ Coffee <... CappouccionoFactory
+ Coffee <... CortadoFactory
+ Coffee <... ExpressoFactory
+ Coffee <... FlateWhiteFactory
+ Coffee <... LatteMacchiatoFactory
+ Coffee <... LungoFactory
+ Coffee <... MacchiatoFactory
+ Coffee <... MochaFactory
+
+
+
+
+
+interface CoffeeFactory{
++ Coffee: createCoffee(String type)
+}
+
+class Calculator{
++ Color: calculateNewColor(Corlor color, int amount)
++ double: calculateNewVolume(double cm3)
++ Map: calculateNewIngredients(Ingredients ingredient)
+}
+
+Calculator <-- Ingredients
+
+package pesistences{
+class UserMapper{
++ boolean: login()
++ boolean: creatUser()
++ list: displayFavorits
+}
+
+class ConnectionPool{
+- ConnectionPool: instance
+- HikariDatasource: ds
+- Logger: LOGGER
+- ConnectionPool: getInstance()
++ Connection: getConnection
++ void: close()
+- HikariDataSource: createHikariConnectionPool()
+}
+
+}
+
+
+
+'CONTROLLERS
+'/////////////////////////////////////
+package controllers{
+class UserController{
++ void: addRoutes()
++ boolean: creatUser
+}
+}
+UserController --> app
+
+'CONFIG
+'/////////////////////////////////////
+package config{
+class SessionConfig{
++ SessionHandler: sessionconfig()
+}
+class ThymeleafConfig{
+ + TemplateEngine: templateEngine()
+ }
+ }
+}
+
+SessionConfig <-- app
+ThymeleafConfig <-- app
+
+'EXCEPTIONS
+'/////////////////////////////////////
+package exceptions{
+class DatabaseExceptions
+class exceptions
+}
+
+
+
+
+'RESOURCES
+package resources{
+
+'PUBLIC
+'/////////////////////////////////////
+package public{
+
+'HTML
+'/////////////////////////////////////////
+package templates{
+entity Index{}
+entity Login{}
+entity CreateAccount{}
+entity CoffeeType{}
+entity CoffeeBrands{}
+entity Options{}
+entity ColorPanel{}
+entity CreatingPanel{}
+entity AboutUs{}
+entity ContactUs{}
+entity Favorites{}
+}
+
+UserController --> Index
+UserController --> Login
+UserController <-- Login
+UserController --> Login
+UserController <-- Login
+
+
+
+
+'CSS
+'/////////////////////////////////////////
+
+package css{
+entity StyleSheet{
+*h1
+*h2
+*body
+*navbar
+*menu
+*footer
+*form
+*form-submit
+*btn
+}
+}
+
+'JAVA SCRIPT
+'////////////////////////////////////////
+
+package js{
+entity ColorPanel{}
+entity CreatorPanel{}
+}
+
+'IMAGES
+'/////////////////////////////////////////
+
+package img{
+entity image{}
+}
+}
+}
+
+
+
+
+
+
+
+@enduml
