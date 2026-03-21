@@ -10,75 +10,196 @@ class App{
 
 package java{
 
-package coffeTypes{
+package coffeeTypes{
 
 package americano{
-class Americano
-class AmericanoFactory
+class Americano{
+- Bean: type
+- int: milkQuantity
+- int: waterQuantity
+- int: caffeineQuantity
++ Bean: type()
++ int: milkQuantity()
++ int: waterQuantity()
++ int: caffeineQuantity()
+}
+class AmericanoFactory{
++ Coffee: createCoffee(String type)
+}
+
 }
 
 package caffeLatte{
-class CaffeLatte
-class CaffeLatteFactory
+class CaffeLatte{
+- Bean: type
+- int: milkQuantity
+- int: waterQuantity
+- int: caffeineQuantity
++ Bean: type()
++ int: milkQuantity()
++ int: waterQuantity()
++ int: caffeineQuantity()
+}
+class CaffeLatteFactory{
++ Coffee: createCoffee(String type)
+}
 }
 
 package cappoucciono{
-class Cappoucciono
-class CappouccionoFactory
+class Cappoucciono{
+- Bean: type
+- int: milkQuantity
+- int: waterQuantity
+- int: caffeineQuantity
++ Bean: type()
++ int: milkQuantity()
++ int: waterQuantity()
++ int: caffeineQuantity()
+}
+class CappouccionoFactory{
++ Coffee: createCoffee(String type)
+}
 }
 
 package cortado{
-class Cortado
-class CortadoFactory
+class Cortado{
+- Bean: type
+- int: milkQuantity
+- int: waterQuantity
+- int: caffeineQuantity
++ Bean: type()
++ int: milkQuantity()
++ int: waterQuantity()
++ int: caffeineQuantity()
+}
+
+class CortadoFactory{
++ Coffee: createCoffee(String type)
+}
 }
 
 package expresso{
-class Expresso
-class ExpressoFactory
+class Expresso{
+- Bean: type
+- int: milkQuantity
+- int: waterQuantity
+- int: caffeineQuantity
++ Bean: type()
++ int: milkQuantity()
++ int: waterQuantity()
++ int: caffeineQuantity()
+}
+
+class ExpressoFactory{
++ Coffee: createCoffee(String type)
+}
 }
 
 package flatWhite{
-class FlateWhite
-class FlateWhiteFactory
+class FlateWhite{
+- Bean: type
+- int: milkQuantity
+- int: waterQuantity
+- int: caffeineQuantity
++ Bean: type()
++ int: milkQuantity()
++ int: waterQuantity()
++ int: caffeineQuantity()
+}
+class FlateWhiteFactory{
++ Coffee: createCoffee(String type)
+}
 }
 
 package latteMacchiato{
-class LatteMacchiato
-class LatteMacchiatoFactory
+class LatteMacchiato{
+- Bean: type
+- int: milkQuantity
+- int: waterQuantity
+- int: caffeineQuantity
++ Bean: type()
++ int: milkQuantity()
++ int: waterQuantity()
++ int: caffeineQuantity()
+}
+class LatteMacchiatoFactory{
++ Coffee: createCoffee(String type)
+}
 }
 
 package lungo{
-class Lungo
-class LungoFactory
+class Lungo{
+- Bean: type
+- int: milkQuantity
+- int: waterQuantity
+- int: caffeineQuantity
++ Bean: type()
++ int: milkQuantity()
++ int: waterQuantity()
++ int: caffeineQuantity()
+}
+
+class LungoFactory{
++ Coffee: createCoffee(String type)
+}
 }
 
 package macchiato{
-class Macchiato
-class MacchiatoFactory
+class Macchiato{
+- Bean: type
+- int: milkQuantity
+- int: waterQuantity
+- int: caffeineQuantity
++ Bean: type()
++ int: milkQuantity()
++ int: waterQuantity()
++ int: caffeineQuantity()
+ }
+class MacchiatoFactory{
++ Coffee: createCoffee(String type)
+}
 }
 
 package mocha{
-class Mocha
-class MochaFactory
+class Mocha{
+- Bean: type
+- int: milkQuantity
+- int: waterQuantity
+- int: caffeineQuantity
++ Bean: type()
++ int: milkQuantity()
++ int: waterQuantity()
++ int: caffeineQuantity()
+}
+
+class MochaFactory{
++ Coffee: createCoffee(String type)
+}
 }
 }
 
-CoffeeFactory <|-- AmericanoFactory
-CoffeeFactory <|-- CaffeLatteFactory
-CoffeeFactory <|-- CappouccionoFactory
-CoffeeFactory <|-- CortadoFactory
-CoffeeFactory <|-- ExpressoFactory
-CoffeeFactory <|-- FlateWhiteFactory
-CoffeeFactory <|-- LatteMacchiatoFactory
-CoffeeFactory <|-- LungoFactory
-CoffeeFactory <|-- MacchiatoFactory
-CoffeeFactory <|-- MochaFactory
+CoffeeFactory <|.. AmericanoFactory
+CoffeeFactory <|.. CaffeLatteFactory
+CoffeeFactory <|.. CappouccionoFactory
+CoffeeFactory <|.. CortadoFactory
+CoffeeFactory <|.. ExpressoFactory
+CoffeeFactory <|.. FlateWhiteFactory
+CoffeeFactory <|.. LatteMacchiatoFactory
+CoffeeFactory <|.. LungoFactory
+CoffeeFactory <|.. MacchiatoFactory
+CoffeeFactory <|.. MochaFactory
 
 
 '//////////////////////////////////////////////
 
-package addOns{
-abstract class AddOns
+package ingredients{
+abstract class Ingredients{
+protected Coffee coffee;
++ Bean: type()
++ int: milkQuantity()
++ int: waterQuantity()
++ int: caffeineQuantity()
+}
 
 class Milk {
 +int: amount()
@@ -93,9 +214,9 @@ class Beans {
 +int: Solubility
 }
 }
-AddOns <|-- Milk
-AddOns <|-- Water
-AddOns <|-- Beans
+Ingredients <|-- Milk
+Ingredients <|-- Water
+Ingredients <|-- Beans
 
 '//////////////////////////////////////////////
 
@@ -114,42 +235,42 @@ int: solubility
 }
 
 interface Coffee{
-- Bean: type
-- int: milkQuantity
-- int: waterQuantity
-- int: caffeineQuantity
+- Bean: type()
+- int: milkQuantity()
+- int: waterQuantity()
+- int: caffeineQuantity()
 }
 }
 
- Coffe <|.. AddOns
- Coffe <|... Americano
- Coffe <|... CaffeLatte
- Coffe <|... Cappoucciono
- Coffe <|.. Cortado
- Coffe <|... Expresso
- Coffe <|... FlateWhite
- Coffe <|... LatteMacchiato
- Coffe <|... Lungo
- Coffe <|... Macchiato
- Coffe <|... Mocha
+ Coffee <|.. Ingredients
+ Coffee <|... Americano
+ Coffee <|... CaffeLatte
+ Coffee <|... Cappoucciono
+ Coffee <|.. Cortado
+ Coffee <|... Expresso
+ Coffee <|... FlateWhite
+ Coffee <|... LatteMacchiato
+ Coffee <|... Lungo
+ Coffee <|... Macchiato
+ Coffee <|... Mocha
 
- Coffe <... AmericanoFactory
- Coffe <... CaffeLatteFactory
- Coffe <... CappouccionoFactory
- Coffe <... CortadoFactory
- Coffe <... ExpressoFactory
- Coffe <... FlateWhiteFactory
- Coffe <... LatteMacchiatoFactory
- Coffe <... LungoFactory
- Coffe <... MacchiatoFactory
- Coffe <... MochaFactory
-
-
+ Coffee <... AmericanoFactory
+ Coffee <... CaffeLatteFactory
+ Coffee <... CappouccionoFactory
+ Coffee <... CortadoFactory
+ Coffee <... ExpressoFactory
+ Coffee <... FlateWhiteFactory
+ Coffee <... LatteMacchiatoFactory
+ Coffee <... LungoFactory
+ Coffee <... MacchiatoFactory
+ Coffee <... MochaFactory
 
 
 
-abstract class CoffeeFactory{
-+ Coffee: coffe()
+
+
+interface CoffeeFactory{
++ Coffee: createCoffee(String type)
 }
 
 class Math{
@@ -159,7 +280,6 @@ class UserMapper{
 + boolean: login()
 + boolean: creatUser()
 + list: displayFavorits
-}
 }
 
 class ConnectionPool{
@@ -171,7 +291,10 @@ class ConnectionPool{
 + void: close()
 - HikariDataSource: createHikariConnectionPool()
 }
+
 }
+
+
 
 'CONTROLLERS
 '/////////////////////////////////////
@@ -188,18 +311,21 @@ package config{
 class SessionConfig{
 + SessionHandler: sessionconfig()
 }
-
 class ThymeleafConfig{
-+ TemplateEngine: templateEngine()
-}
+ + TemplateEngine: templateEngine()
+ }
+ }
 }
 
 'EXCEPTIONS
 '/////////////////////////////////////
 package exceptions{
-class DatabaseExceptions{}
-class exceptions{}
+class DatabaseExceptions
+class exceptions
 }
+
+
+
 
 'RESOURCES
 package resources{
@@ -214,8 +340,8 @@ package templates{
 entity Index{}
 entity Login{}
 entity CreateAccount{}
-entity CoffeType{}
-entity CoffeBrands{}
+entity CoffeeType{}
+entity CoffeeBrands{}
 entity Options{}
 entity ColorPanel{}
 entity CreatingPanel{}
