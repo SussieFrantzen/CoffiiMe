@@ -228,11 +228,6 @@ class Users{
 - String: password
 }
 
-interface Bean{
-String: brand
-color: color
-int: solubility
-}
 
 interface Coffee{
 + Color: getColor()
@@ -240,6 +235,8 @@ interface Coffee{
 + Map: getIngredients()
 }
 }
+
+
 
  Coffee <|.up.. Ingredients
  Coffee <|... Americano
@@ -279,17 +276,22 @@ class Calculator{
 }
 
 Calculator <-- Ingredients
-
+'///////// SE PÅ DETTE!!!!
 package pesistences{
 class UserMapper{
 + boolean: login()
 + boolean: creatUser()
-+ list: displayFavorits
++ list displayFavorites(user) SQL
++ list: Favorites(userid, name, Coffee)
++ boolean: addToFavorites(user_id, name, Coffee)
++ boolean: removeFromFavorites()
 }
+'///////// SE PÅ DETTE!!!!
+UserMapper ----> Users
 
 class ConnectionPool{
 - ConnectionPool: instance
-- HikariDatasource: ds
+- HikariDatasource:
 - Logger: LOGGER
 - ConnectionPool: getInstance()
 + Connection: getConnection
@@ -297,9 +299,17 @@ class ConnectionPool{
 - HikariDataSource: createHikariConnectionPool()
 }
 
+App ---> ConnectionPool
+
 }
 
-
+'EXCEPTIONS
+'/////////////////////////////////////
+package exceptions{
+class DatabaseExceptions
+class exceptions
+}
+ConnectionPool --> DatabaseExceptions
 
 'CONTROLLERS
 '/////////////////////////////////////
@@ -309,7 +319,13 @@ class UserController{
 + boolean: creatUser
 }
 }
-UserController --> app
+UserController --up--> App
+UserController -up--> UserMapper
+
+UserController --> CoffeeFactory
+UserController --> Coffee
+
+
 
 'CONFIG
 '/////////////////////////////////////
@@ -325,16 +341,6 @@ class ThymeleafConfig{
 
 SessionConfig <-- app
 ThymeleafConfig <-- app
-
-'EXCEPTIONS
-'/////////////////////////////////////
-package exceptions{
-class DatabaseExceptions
-class exceptions
-}
-
-
-
 
 'RESOURCES
 package resources{
@@ -357,16 +363,48 @@ entity CreatingPanel{}
 entity AboutUs{}
 entity ContactUs{}
 entity Favorites{}
+
+package templatesCoffeeTypes{
+entity Americano_html
+entity CaffeLatte_html
+entity Cappoucciono_html
+entity Cortado_html
+entity Expresso_html
+entity FlateWhit_html
+entity LatteMacchiato_html
+entity Lungo_html
+entity Macchiato_html
+entity Mocha_html
 }
+CoffeeTypes --> Americano_html
+CoffeeTypes --> CaffeLatte_html
+CoffeeTypes -->  Cappoucciono_html
+CoffeeTypes -->  Cortado_html
+CoffeeTypes -->  Expresso_html
+CoffeeTypes -->  FlateWhit_html
+CoffeeTypes -->  LatteMacchiato_html
+CoffeeTypes -->  Lungo_html
+CoffeeTypes -->  Macchiato_html
+CoffeeTypes -->  Mocha_html
 
 UserController --> Index
 UserController --> Login
 UserController <-- Login
-UserController --> Login
-UserController <-- Login
-
-
-
+UserController --> CreateAccount
+UserController <-- CreateAccount
+UserController --> CoffeeType
+UserController --> CoffeeBrands
+UserController --> Options
+UserController <-- Options
+UserController --> ColorPanel
+UserController <-- ColorPanel
+UserController --> CreatingPanel
+UserController <-- CreatingPanel
+UserController --> AboutUs
+UserController --> ContactUs
+UserController --> Favorites
+UserController <-- Favorites
+}
 
 'CSS
 '/////////////////////////////////////////
