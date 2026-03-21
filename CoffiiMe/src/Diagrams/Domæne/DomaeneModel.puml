@@ -1,0 +1,29 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Coffee
+class CoffeeFactory
+class Bean
+class Type
+class Favorit
+class Account
+class App
+class User
+
+Type "..." -down- "..." Favorit
+Bean "..."-down- "..." Favorit
+
+Favorit "..." -left- "1" Account
+App "1"-left-"..." Account
+
+User "1"-- "1" Account
+User "1"-down-"1" App
+User "..."-"..." Coffee
+
+Coffee "1"-right- "1" CoffeeFactory
+
+CoffeeFactory "1"-down-"..." Type
+CoffeeFactory "1"-right- "..." Bean
+
+
+@enduml
