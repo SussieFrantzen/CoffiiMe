@@ -1,25 +1,21 @@
 package java.ingredients;
 
+import java.Calculator;
 import java.awt.*;
 import java.entities.Coffee;
 import java.util.Map;
 
 public abstract class Ingredients implements Coffee {
 
+    Calculator calculator = new Calculator();
     private Coffee coffee;
 
     @Override
-    public Color getColor() {
-        return null;
-    }
+    public abstract Color getColor();
 
     @Override
-    public int getVolume() {
-        return 0;
-    }
+    public abstract int getVolume();
 
     @Override
-    public Map<String, Integer> getIngredients() {
-        return Map.of();
-    }
+    public abstract Map<String, Integer> getIngredients();
 }
