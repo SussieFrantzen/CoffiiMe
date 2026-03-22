@@ -5,6 +5,7 @@ import java.entities.Coffee;
 import java.util.Map;
 
 public class Mocha implements Coffee {
+
     @Override
     public Color getColor() {
         return null;

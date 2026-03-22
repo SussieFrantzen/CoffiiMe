@@ -5,6 +5,8 @@ import java.entities.Coffee;
 import java.util.Map;
 
 public class Corado implements Coffee {
+
+
     @Override
     public Color getColor() {
         return null;

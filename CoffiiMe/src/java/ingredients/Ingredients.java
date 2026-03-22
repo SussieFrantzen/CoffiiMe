@@ -1,5 +1,4 @@
 package java.ingredients;
-
 import java.Calculator;
 import java.awt.*;
 import java.entities.Coffee;
@@ -18,4 +17,5 @@ public abstract class Ingredients implements Coffee {
 
     @Override
     public abstract Map<String, Integer> getIngredients();
+
 }

@@ -6,6 +6,7 @@ import java.util.Map;
 
 public class LatteMacchiato implements Coffee {
 
+
     @Override
     public Color getColor() {
         return null;

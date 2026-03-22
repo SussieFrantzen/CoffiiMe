@@ -10,14 +10,14 @@ public class Calculator {
     Map<String, Integer> coffeeIngredients = new HashMap<>();
 
     public Color calculateNewColor(Color color, int amount){
-        return color;
+        return Color.BLACK;
     }
 
-    public double calculateNewVolume(double cm3){
-        return cm3;
+    public int calculateNewVolume(int amount){
+        return 0;
     }
 
-    public Map<String, Integer> calculateNewIngredients(Ingredients ingredients){
+    public Map<String, Integer> calculateNewIngredients(String ingredient, int amount){
         return coffeeIngredients;
     }
 }
