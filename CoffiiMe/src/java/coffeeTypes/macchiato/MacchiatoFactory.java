@@ -1,4 +1,12 @@
 package java.coffeeTypes.macchiato;
 
-public class MacchiatoFactory {
+import java.CoffeeFactory;
+import java.entities.Coffee;
+
+public class MacchiatoFactory implements CoffeeFactory {
+
+    @Override
+    public Coffee createCoffee(String type) {
+        return null;
+    }
 }

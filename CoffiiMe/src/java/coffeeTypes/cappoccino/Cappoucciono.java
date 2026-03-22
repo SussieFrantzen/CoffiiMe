@@ -1,10 +1,10 @@
-package java.coffeeTypes.lungo;
+package java.coffeeTypes.cappoccino;
 
 import java.awt.*;
 import java.entities.Coffee;
 import java.util.Map;
 
-public class Lungo implements Coffee {
+public class Cappoucciono implements Coffee {
     @Override
     public Color getColor() {
         return null;

@@ -16,10 +16,10 @@ package americano{
 class Americano{
 - Color: color
 - int: volume
-- Map: ingredients
+- Map<String, Integer>: ingredients
 + Color: getColor()
 + int: getVolume()
-+ Map: getIngredients()
++ Map<String, Integer>: getIngredients()
 }
 class AmericanoFactory{
 + Coffee: createCoffee(String type)
@@ -236,7 +236,7 @@ interface Coffee{
 }
 }
 
-
+'//////////////
 
  Coffee <|.up.. Ingredients
  Coffee <|... Americano
@@ -261,10 +261,6 @@ interface Coffee{
  Coffee <... MacchiatoFactory
  Coffee <... MochaFactory
 
-
-
-
-
 interface CoffeeFactory{
 + Coffee: createCoffee(String type)
 }
@@ -276,17 +272,18 @@ class Calculator{
 }
 
 Calculator <-- Ingredients
-'///////// SE PÅ DETTE!!!!
 package pesistences{
 class UserMapper{
-+ boolean: login()
++ Users: login()
 + boolean: creatUser()
-+ list displayFavorites(user) SQL
-+ list: Favorites(userid, name, Coffee)
-+ boolean: addToFavorites(user_id, name, Coffee)
-+ boolean: removeFromFavorites()
 }
-'///////// SE PÅ DETTE!!!!
+
+class CoffeeMapper{
++ boolean: addToFavorites(user_id, CoffeeName)
++ list: getFavorites(user_id)
+}
+
+CoffeeMapper ----> Users
 UserMapper ----> Users
 
 class ConnectionPool{
@@ -300,7 +297,6 @@ class ConnectionPool{
 }
 
 App ---> ConnectionPool
-
 }
 
 'EXCEPTIONS
@@ -316,14 +312,43 @@ ConnectionPool --> DatabaseExceptions
 package controllers{
 class UserController{
 + void: addRoutes()
-+ boolean: creatUser
++ void: creatUser()
++ void: login()
++ void: logout()
+}
+
+class CoffeeController{
++ void: createCoffee()
++ void: addToFavorites()
++ void: getFavorites()
 }
 }
+
+CoffeeController --> App
+CoffeeController --> CoffeeMapper
+CoffeeController --> Users
+
+CoffeeController --> Coffee
+CoffeeController --> CoffeeFactory
+CoffeeController --> Milk
+CoffeeController --> Water
+CoffeeController --> BeanDavidoff
+CoffeeController --> BeanMerild
+CoffeeController --> BeanNestle
+
+CoffeeController --> AmericanoFactory
+CoffeeController -->  CaffeLatteFactory
+CoffeeController --> CappouccionoFactory
+CoffeeController --> CortadoFactory
+CoffeeController --> ExpressoFactory
+CoffeeController --> FlateWhiteFactory
+CoffeeController --> LatteMacchiatoFactory
+CoffeeController --> LungoFactory
+CoffeeController --> MacchiatoFactory
+CoffeeController --> MochaFactory
+
 UserController --up--> App
 UserController -up--> UserMapper
-
-UserController --> CoffeeFactory
-UserController --> Coffee
 
 
 
@@ -429,6 +454,8 @@ entity StyleSheet{
 package js{
 entity ColorPanel{}
 entity CreatorPanel{}
+entity Favorites{}
+
 }
 
 'IMAGES

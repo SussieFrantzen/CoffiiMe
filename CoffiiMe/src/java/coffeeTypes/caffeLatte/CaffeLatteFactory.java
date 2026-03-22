@@ -1,4 +1,12 @@
 package java.coffeeTypes.caffeLatte;
 
-public class CaffeLatteFactory {
+import java.CoffeeFactory;
+import java.entities.Coffee;
+
+public class CaffeLatteFactory implements CoffeeFactory {
+
+    @Override
+    public Coffee createCoffee(String type) {
+        return null;
+    }
 }

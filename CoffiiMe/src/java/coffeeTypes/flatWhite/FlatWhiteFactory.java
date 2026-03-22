@@ -1,9 +1,9 @@
-package java.coffeeTypes.lungo;
+package java.coffeeTypes.flatWhite;
 
 import java.CoffeeFactory;
 import java.entities.Coffee;
 
-public class LungoFactory implements CoffeeFactory {
+public class FlatWhiteFactory implements CoffeeFactory {
 
     @Override
     public Coffee createCoffee(String type) {

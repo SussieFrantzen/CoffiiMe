@@ -1,4 +1,12 @@
 package java.coffeeTypes.cortado;
 
-public class CoradoFactory {
+import java.CoffeeFactory;
+import java.entities.Coffee;
+
+public class CoradoFactory implements CoffeeFactory {
+
+    @Override
+    public Coffee createCoffee(String type) {
+        return null;
+    }
 }
