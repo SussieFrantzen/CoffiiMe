@@ -14,7 +14,7 @@ public class Milk extends Ingredients {
 
     @Override
     public Color getColor() {
-        return calculator.calculateNewColor(super.getColor(), Color.BLACK, milkAmount);
+        return calculator.calculateNewColor(super.getColor(), super.getVolume(), new Color(110,20,73), milkAmount);
     }
 
     @Override
@@ -24,7 +24,6 @@ public class Milk extends Ingredients {
 
     @Override
     public Map<String, Integer> getIngredients() {
-        System.out.println("Taber");
         return calculator.calculateNewIngredients(super.getIngredients(),"Milk", milkAmount);
     }
 }
