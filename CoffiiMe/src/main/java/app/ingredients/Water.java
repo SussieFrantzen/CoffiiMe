@@ -7,14 +7,14 @@ public class Water extends Ingredients{
 
     int waterAmount;
 
-    Water(Coffee coffee, int waterAmount){
+    public Water(Coffee coffee, int waterAmount){
         super(coffee);
         this.waterAmount = waterAmount;
     }
 
     @Override
     public Color getColor() {
-        return calculator.calculateNewColor(super.getColor(), Color.BLACK, waterAmount);
+        return calculator.calculateNewColor(super.getColor(), super.getVolume(), new Color(42,25,120), waterAmount);
     }
 
     @Override

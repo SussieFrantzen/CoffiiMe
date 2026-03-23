@@ -17,7 +17,7 @@ public class BeanNestle extends Ingredients {
 
     @Override
     public Color getColor() {
-        return calculator.calculateNewColor(super.getColor(), Color.BLACK, beanAmount);
+        return calculator.calculateNewColor(super.getColor(), super.getVolume(), new Color(107,20,73), beanAmount);
     }
 
     @Override

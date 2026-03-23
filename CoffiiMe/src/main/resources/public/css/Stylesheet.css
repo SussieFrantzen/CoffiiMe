@@ -1,3 +1,14 @@
+
+.header{
+    display: flex;
+    align-items: flex-start;
+}
+
+
+
+
+
+
 /* _______________ logo__________________  */
 
 .logoplace {
@@ -6,7 +17,7 @@
 }
 
 .logoSize {
-    width: 20%;
+    width: 35%;
     heigth: auto;
 }
 
@@ -18,6 +29,35 @@ h1 {
     font-size: 35pt;
 }
 
+.account{
+
+    display: flex;
+    list-style: none;
+    margin-left: auto;
+    gap: 60px;
+    font-family: "Baskerville Old Face";
+    font-weight: 500;
+    font-size: 30pt;
+    padding: 0 0;
+    color: black;
+}
+
+.account a{
+    text-decoration: none;
+    color: black;
+    font-family: "Baskerville Old Face";
+    font-weight: 500;
+    font-size: 30pt;
+    padding: 20px 0;
+}
+
+.account li.right{
+    margin-left: auto;
+}
+
+.account a:hover{
+    opacity: 0.7;
+}
 
 
 bodyText{
@@ -39,7 +79,7 @@ bodyText{
 }
 
 .nav2{
-    padding: 0 50px;
+    padding: 50px 1500px;
 }
 
 
@@ -47,6 +87,7 @@ bodyText{
 
 .menu {
     display: flex;
+    justify-content: center;
     list-style: none;
     gap: 60px;
 }
@@ -57,7 +98,7 @@ bodyText{
 
 .menu a{
     text-decoration: none;
-    corlor: black;
+    color: black;
     font-family: "Baskerville Old Face";
     font-weight: 500;
     font-size: 30pt;
@@ -89,3 +130,23 @@ bodyText{
 
 
 /* ________________ form __________________  */
+
+
+
+/* ________________ background __________________  */
+body {
+    background-color: #F8F6E6; /* eller hvilken farve du vil */
+}
+
+
+/* ________________ Footer __________________  */
+.footer-content {
+    padding-top: 120px;
+    text-align: center;
+}
+
+.footer-divider {
+    width: 100%;
+    margin: 30px auto;
+    background-color: black;
+}
