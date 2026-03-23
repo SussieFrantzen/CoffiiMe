@@ -6,20 +6,28 @@ import java.util.Map;
 
 public class Americano implements Coffee {
 
+    Color color;
+    int volume;
+    Map<String, Integer> ingredients;
 
+    public Americano(Color color, int volume, Map<String, Integer> ingredients) {
+        this.color = color;
+        this.volume = volume;
+        this.ingredients = ingredients;
+    }
 
     @Override
     public Color getColor() {
-        return null;
+        return color;
     }
 
     @Override
     public int getVolume() {
-        return 0;
+        return volume;
     }
 
     @Override
     public Map<String, Integer> getIngredients() {
-        return Map.of();
+        return ingredients;
     }
 }

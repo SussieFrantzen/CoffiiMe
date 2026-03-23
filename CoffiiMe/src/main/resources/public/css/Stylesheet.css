@@ -1,0 +1,73 @@
+/* _______________ logo__________________  */
+
+.logoplace {
+    padding-left: 30px;
+
+}
+
+.logoSize {
+    width: 20%;
+    heigth: auto;
+}
+
+/* ________________ text __________________  */
+
+h1 {
+    font-family: "Baskerville Old Face";
+    font-weight: 600;
+    font-size: 35pt;
+}
+
+
+
+bodyText{
+    font-family: "Baskerville Old Face";
+    font-weight: 300;
+    font-size: 25pt;
+    line-height: 120%;
+}
+
+/* ________________ padding __________________  */
+
+
+.navheader{
+    padding: 50px 95px;
+}
+
+.nav1{
+    padding: 0 95px;
+}
+
+.nav2{
+    padding: 0 50px;
+}
+
+
+/* ________________ Menu __________________  */
+
+.menu {
+    display: flex;
+    list-style: none;
+    gap: 60px;
+}
+
+.menu li.right{
+    margin-left: auto;
+}
+
+.menu a{
+    text-decoration: none;
+    corlor: black;
+    font-family: "Baskerville Old Face";
+    font-weight: 500;
+    font-size: 30pt;
+    padding: 20px 0;
+}
+
+.menu a:hover{
+    opacity: 0.7;
+}
+
+
+
+

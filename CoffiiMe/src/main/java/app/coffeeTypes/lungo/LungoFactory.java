@@ -5,7 +5,7 @@ import app.entities.Coffee;
 public class LungoFactory implements CoffeeFactory {
 
     @Override
-    public Coffee createCoffee(String type) {
+    public Coffee createCoffee(String beanType) {
         return null;
     }
 }

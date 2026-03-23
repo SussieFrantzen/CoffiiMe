@@ -1,11 +1,39 @@
 package app.coffeeTypes.americano;
+
 import app.CoffeeFactory;
 import app.entities.Coffee;
+
+import java.awt.*;
+import java.util.HashMap;
+import java.util.Map;
 
 public class AmericanoFactory implements CoffeeFactory {
 
     @Override
-    public Coffee createCoffee(String type) {
-        return null;
+    public Coffee createCoffee(String beanType) {
+
+        Color color = null;
+        int volume = 30;
+        Map<String, Integer> ingredients = new HashMap<>();
+
+        ingredients.put("Water", 70);
+        ingredients.put("Milk", 0);
+
+        switch (beanType) {
+            case "BeanDavidoff":
+                ingredients.put("Bean", 30);
+                color = new Color(20, 20, 20);
+                break;
+            case "BeanMerild":
+                ingredients.put("Bean", 30);
+                color = new Color(20, 20, 20);
+                break;
+            case "BeanNestle":
+                ingredients.put("Bean", 30);
+                color = new Color(20, 20, 20);
+                break;
+        }
+
+        return new Americano(color, volume, ingredients);
     }
 }

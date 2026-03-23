@@ -1,5 +1,6 @@
 package app;
 
+import app.persistence.CoffeeMapper;
 import io.javalin.Javalin;
 import io.javalin.rendering.template.JavalinThymeleaf;
 
@@ -30,5 +31,15 @@ public class App {
        ///TO DO
         UserController.addRoutes(app, connectionPool);
 
+
+        CoffeeMapper m = new CoffeeMapper();
+        m.createCoffee();
+
+
+
+
     }
+
+
+
 }

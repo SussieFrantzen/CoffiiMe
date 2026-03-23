@@ -7,7 +7,7 @@ public class Milk extends Ingredients {
 
     int milkAmount;
 
-    Milk(Coffee coffee, int milkAmount){
+    public Milk(Coffee coffee, int milkAmount){
         super(coffee);
         this.milkAmount = milkAmount;
     }
