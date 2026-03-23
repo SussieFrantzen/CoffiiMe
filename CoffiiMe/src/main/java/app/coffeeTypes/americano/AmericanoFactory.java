@@ -13,7 +13,7 @@ public class AmericanoFactory implements CoffeeFactory {
     public Coffee createCoffee(String beanType) {
 
         Color color = null;
-        int volume = 30;
+        int volume = 70;
         Map<String, Integer> ingredients = new HashMap<>();
 
         ingredients.put("Water", 70);

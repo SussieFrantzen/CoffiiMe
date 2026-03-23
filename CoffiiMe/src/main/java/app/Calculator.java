@@ -13,7 +13,7 @@ public class Calculator {
     }
 
     public int calculateNewVolume(int coffeeVolume, int amount){
-        return 0;
+        return coffeeVolume + amount;
     }
 
     public Map<String, Integer> calculateNewIngredients(Map<String, Integer> coffeeIngredients, String ingredient, int amount){
