@@ -24,6 +24,7 @@ public class Milk extends Ingredients {
 
     @Override
     public Map<String, Integer> getIngredients() {
+        System.out.println("Taber");
         return calculator.calculateNewIngredients(super.getIngredients(),"Milk", milkAmount);
     }
 }

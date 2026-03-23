@@ -17,6 +17,11 @@ public class Calculator {
     }
 
     public Map<String, Integer> calculateNewIngredients(Map<String, Integer> coffeeIngredients, String ingredient, int amount){
+        if(coffeeIngredients.containsKey(ingredient)){
+            coffeeIngredients.put(ingredient, coffeeIngredients.get(ingredient) + amount);
+        } else {
+            coffeeIngredients.put(ingredient, amount);
+        }
         return coffeeIngredients;
     }
 }

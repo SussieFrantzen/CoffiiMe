@@ -19,6 +19,7 @@ public class CoffeeMapper {
         coffee = new Milk(coffee,20);
 
         System.out.println(coffee.getVolume());
+        System.out.println(coffee.getIngredients());
     }
 
     public boolean addToFavorites(Users user_id, Coffee coffename){
