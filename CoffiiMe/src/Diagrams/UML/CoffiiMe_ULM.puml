@@ -12,6 +12,20 @@ package java{
 
 package coffeeTypes{
 
+package customCoffee{
+class CustomCoffee{
+- Color: color
+- int: volume
+- Map<String, Integer>: ingredients
++ Color: getColor()
++ int: getVolume()
++ Map<String, Integer>: getIngredients()
+}
+class CustomCoffeeFactory{
++ Coffee: createCoffee(String beanType)
+}
+}
+
 package americano{
 class Americano{
 - Color: color
@@ -22,9 +36,8 @@ class Americano{
 + Map<String, Integer>: getIngredients()
 }
 class AmericanoFactory{
-+ Coffee: createCoffee(String type)
++ Coffee: createCoffee(String beanType)
 }
-
 }
 
 package caffeLatte{
@@ -37,7 +50,7 @@ class CaffeLatte{
 + Map: getIngredients()
 }
 class CaffeLatteFactory{
-+ Coffee: createCoffee(String type)
++ Coffee: createCoffee(String beanType)
 }
 }
 
@@ -51,7 +64,7 @@ class Cappoucciono{
 + Map: getIngredients()
 }
 class CappouccionoFactory{
-+ Coffee: createCoffee(String type)
++ Coffee: createCoffee(String beanType)
 }
 }
 
@@ -64,9 +77,8 @@ class Cortado{
 + int: getVolume()
 + Map: getIngredients()
 }
-
 class CortadoFactory{
-+ Coffee: createCoffee(String type)
++ Coffee: createCoffee(String beanType)
 }
 }
 
@@ -79,9 +91,8 @@ class Expresso{
 + int: getVolume()
 + Map: getIngredients()
 }
-
 class ExpressoFactory{
-+ Coffee: createCoffee(String type)
++ Coffee: createCoffee(String beanType)
 }
 }
 
@@ -95,7 +106,7 @@ class FlateWhite{
 + Map: getIngredients()
 }
 class FlateWhiteFactory{
-+ Coffee: createCoffee(String type)
++ Coffee: createCoffee(String beanType)
 }
 }
 
@@ -109,7 +120,7 @@ class LatteMacchiato{
 + Map: getIngredients()
 }
 class LatteMacchiatoFactory{
-+ Coffee: createCoffee(String type)
++ Coffee: createCoffee(String beanType)
 }
 }
 
@@ -122,9 +133,8 @@ class Lungo{
 + int: getVolume()
 + Map: getIngredients()
 }
-
 class LungoFactory{
-+ Coffee: createCoffee(String type)
++ Coffee: createCoffee(String beanType)
 }
 }
 
@@ -136,9 +146,9 @@ class Macchiato{
 + Color: getColor()
 + int: getVolume()
 + Map: getIngredients()
- }
+}
 class MacchiatoFactory{
-+ Coffee: createCoffee(String type)
++ Coffee: createCoffee(String beanType)
 }
 }
 
@@ -151,11 +161,11 @@ class Mocha{
 + int: getVolume()
 + Map: getIngredients()
 }
-
 class MochaFactory{
-+ Coffee: createCoffee(String type)
++ Coffee: createCoffee(String beanType)
 }
 }
+
 }
 
 CoffeeFactory <|.up. AmericanoFactory
@@ -233,7 +243,7 @@ class Users{
 interface Coffee{
 + Color: getColor()
 + int: getVolume()
-+ Map: getIngredients()
++ Map<String, Integer>: getIngredients()
 }
 }
 
@@ -263,14 +273,13 @@ interface Coffee{
  Coffee <... MochaFactory
 
 interface CoffeeFactory{
-+ Coffee: createCoffee(String type)
++ Coffee: createCoffee(String beanType)
 }
 
 class Calculator{
-+ Map<String,Integer>: coffeeIngredients
-+ Color: calculateNewColor(Corlor color, int amount)
-+ double: calculateNewVolume(double cm3)
-+ Map<String,Integer>: calculateNewIngredients(Ingredients ingredient)
++ Color: calculateNewColor(Color coffeeColor, int coffeeAmount, Color ingredientColor, int ingredientAmount)
++ int: calculateNewVolume(int coffeeVolume, int amount)
++ Map<String,Integer>: calculateNewIngredients(Map<String, Integer> coffeeIngredients, String ingredient, int amount)
 }
 
 Calculator <--right-- Ingredients

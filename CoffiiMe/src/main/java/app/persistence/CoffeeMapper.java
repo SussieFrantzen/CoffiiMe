@@ -1,6 +1,7 @@
 package app.persistence;
 
 import app.coffeeTypes.americano.AmericanoFactory;
+import app.coffeeTypes.customCoffee.CustomCoffeeFactory;
 import app.entities.Coffee;
 import app.entities.Users;
 import app.ingredients.Milk;
@@ -16,17 +17,17 @@ public class CoffeeMapper {
 
     public void createCoffee(){
 
-        Coffee coffee = new AmericanoFactory().createCoffee("BeanMerild");
-        coffee = new Milk(coffee,25);
-        coffee = new Water(coffee, 50);
+        Coffee americano = new AmericanoFactory().createCoffee("BeanMerild");
+        americano = new Milk(americano,25);
+        americano = new Water(americano, 50);
 
-        System.out.println(coffee.getColor());
-        System.out.println(coffee.getIngredients());
-        System.out.println(coffee.getVolume());
+        Coffee customCoffee = new CustomCoffeeFactory().createCoffee("BeanMerild");
+        customCoffee = new Water(customCoffee,50);
 
-
-
-
+        System.out.println(customCoffee.getColor());
+        System.out.println(americano.getColor());
+        System.out.println(americano.getIngredients());
+        System.out.println(americano.getVolume());
     }
 
     public boolean addToFavorites(Users user_id, Coffee coffename){

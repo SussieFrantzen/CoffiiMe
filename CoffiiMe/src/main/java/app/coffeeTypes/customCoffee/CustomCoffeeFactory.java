@@ -1,14 +1,13 @@
-package app.coffeeTypes.mocha;
+package app.coffeeTypes.customCoffee;
 
 import app.CoffeeFactory;
-import app.coffeeTypes.americano.Americano;
 import app.entities.Coffee;
 
 import java.awt.*;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MochaFactory implements CoffeeFactory {
+public class CustomCoffeeFactory implements CoffeeFactory {
 
     @Override
     public Coffee createCoffee(String beanType) {
@@ -16,9 +15,6 @@ public class MochaFactory implements CoffeeFactory {
         Color color = null;
         int volume = 50;
         Map<String, Integer> ingredients = new HashMap<>();
-
-        ingredients.put("Water", 50);
-        ingredients.put("Milk", 0);
 
         switch (beanType) {
             case "BeanDavidoff":
@@ -35,6 +31,6 @@ public class MochaFactory implements CoffeeFactory {
                 break;
         }
 
-        return new Mocha(color, volume, ingredients);
+        return new CustomCoffee(color, volume, ingredients);
     }
 }

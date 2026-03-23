@@ -6,9 +6,9 @@ import java.util.Map;
 
 public class Americano implements Coffee {
 
-    Color color;
-    int volume;
-    Map<String, Integer> ingredients;
+    private Color color;
+    private int volume;
+    private Map<String, Integer> ingredients;
 
     public Americano(Color color, int volume, Map<String, Integer> ingredients) {
         this.color = color;

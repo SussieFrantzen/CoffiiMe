@@ -1,16 +1,17 @@
-package app.coffeeTypes.mocha;
+package app.coffeeTypes.customCoffee;
+
+import app.entities.Coffee;
 
 import java.awt.*;
-import app.entities.Coffee;
 import java.util.Map;
 
-public class Mocha implements Coffee {
+public class CustomCoffee implements Coffee {
 
     Color color;
     int volume;
     Map<String, Integer> ingredients;
 
-    public Mocha(Color color, int volume, Map<String, Integer> ingredients) {
+    public CustomCoffee(Color color, int volume, Map<String, Integer> ingredients) {
         this.color = color;
         this.volume = volume;
         this.ingredients = ingredients;
