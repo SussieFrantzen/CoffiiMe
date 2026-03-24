@@ -24,7 +24,7 @@ public abstract class Ingredients implements Coffee {
     }
 
     @Override
-    public Map<String, Integer> getIngredients(){
+    public Map<String, Double> getIngredients(){
         return coffee.getIngredients();
     }
 }

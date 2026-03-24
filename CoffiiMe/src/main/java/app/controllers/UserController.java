@@ -25,7 +25,17 @@ public class UserController {
         
         app.post("/index", ctx -> login(ctx, connectionPool));
         app.post("/index", ctx -> createUser(ctx, connectionPool));
+
+
+
+        // coffee types picture link
+
+
+
+
     }
+
+
 
     public static void createUser(Context ctx, ConnectionPool connectionPool) throws DatabaseException {
         String firstname = ctx.formParam("createUsername");
