@@ -3,27 +3,21 @@ import java.awt.*;
 import app.entities.Coffee;
 import java.util.Map;
 
-public class Milk extends Ingredients {
+public class Milk extends Coffee {
 
-    int milkPercentages;
-
-    public Milk(Coffee coffee, int milkPercentages){
-        super(coffee);
-        this.milkPercentages = milkPercentages;
-    }
 
     @Override
     public Color getColor() {
-        return calculator.calculateNewColor(super.getColor(), new Color(110,20,73), milkPercentages);
+        return null;
     }
 
     @Override
-    public int getVolume() {
-        return calculator.calculateNewVolume(super.getVolume());
+    public double getVolume() {
+        return 0;
     }
 
     @Override
     public Map<String, Double> getIngredients() {
-        return calculator.calculateNewIngredients(super.getIngredients(),"Milk", milkPercentages);
+        return Map.of();
     }
 }
