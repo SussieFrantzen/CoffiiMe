@@ -1,11 +1,14 @@
 package app.entities;
 
+import app.Calculator;
+
 import java.awt.*;
 import java.util.Map;
 
-public interface Coffee {
+public abstract class Coffee extends Calculator {
 
-    Color getColor();
-    int getVolume();
-    Map<String, Double> getIngredients();
+   public abstract Color getColor();
+    public abstract double getVolume();
+    public abstract   Map<String, Double> getIngredients();
+
 }
