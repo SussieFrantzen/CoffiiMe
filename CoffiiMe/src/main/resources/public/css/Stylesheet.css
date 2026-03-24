@@ -1,9 +1,19 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
 
-.header{
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.header {
     display: flex;
     align-items: flex-start;
 }
-
 
 
 /* _______________ logo__________________  */
@@ -23,59 +33,59 @@
 h1 {
     font-family: "Baskerville Old Face";
     font-weight: 600;
-    font-size: 35pt;
+    font-size: 35px;
 }
 
-.account{
+.account {
 
     display: flex;
     list-style: none;
     margin-left: auto;
-    gap: 60px;
+    gap: 20px;
     font-family: "Baskerville Old Face";
     font-weight: 500;
-    font-size: 30pt;
-    padding: 0 0;
+    font-size: 30px;
+    padding: 0 20px;
     color: black;
 }
 
-.account a{
+.account a {
     text-decoration: none;
     color: black;
     font-family: "Baskerville Old Face";
     font-weight: 500;
-    font-size: 25pt;
-    padding: 20px 0;
+    font-size: 25px;
+    padding: 20px 0px;
 }
 
-.account li.right{
+.account li.right {
     margin-left: auto;
 }
 
-.account a:hover{
+.account a:hover {
     opacity: 0.7;
 }
 
 
-bodyText{
+bodyText {
     font-family: "Baskerville Old Face";
     font-weight: 300;
-    font-size: 20pt;
+    font-size: 20px;
     line-height: 120%;
 }
 
 /* ________________ padding __________________  */
 
 
-.navheader{
+.navheader {
     padding: 50px 95px;
 }
 
-.nav1{
+.nav1 {
     padding: 0 95px;
 }
 
-.nav2{
+.nav2 {
     padding: 50px 1500px;
 }
 
@@ -89,20 +99,20 @@ bodyText{
     gap: 60px;
 }
 
-.menu li.right{
+.menu li.right {
     margin-left: auto;
 }
 
-.menu a{
+.menu a {
     text-decoration: none;
     color: black;
     font-family: "Baskerville Old Face";
     font-weight: 500;
-    font-size: 25pt;
+    font-size: 25px;
     padding: 20px 0;
 }
 
-.menu a:hover{
+.menu a:hover {
     opacity: 0.7;
 }
 
@@ -129,7 +139,6 @@ bodyText{
 /* ________________ form __________________  */
 
 
-
 /* ________________ background __________________  */
 body {
     background-color: #F8F6E6; /* eller hvilken farve du vil */
@@ -137,29 +146,48 @@ body {
 
 
 /* ________________ Footer __________________  */
-.footer{
+.footer {
+    position: fixed;
+    bottom: 20px;
+    left: 0;
+    width: 100%;
     display: flex;
+    align-items: center;
     justify-content: center;
     list-style: none;
     gap: 60px;
-}
-
-.footer-content {
-    padding-top: 120px;
-    text-align: center;
-}
-.footer a{
-    text-decoration: none;
-    color: black;
-    font-family: "Baskerville Old Face";
-    font-weight: 500;
-    font-size: 25pt;
+    background-color: black;
+    z-index: 1000;
     padding: 20px 0;
 }
 
+.footer-content {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.footer a {
+    transform: translateY(1px);
+    position: relative;
+    text-decoration: none;
+    color: white;
+    font-family: "Baskerville Old Face";
+    font-weight: 500;
+    font-size: 25px;
+
+    line-height: 40px;
+    padding: 0;
+}
+
 .footer-divider {
+    position: absolute;
+    left: 0;
+    z-index: 0;
     width: 100%;
     height: 40px;
-    margin: 30px auto;
     background-color: black;
 }

@@ -1,25 +1,56 @@
 package app.controllers;
 
+import app.exception.DatabaseException;
+import app.persistence.UserMapper;
 import io.javalin.Javalin;
-
+import io.javalin.http.Context;
 import app.persistence.ConnectionPool;
 
 public class UserController {
 
 
     public static void addRoutes(Javalin app, ConnectionPool connectionPool) {
-        app.get("CreateAccount", ctx -> ctx.render("CreateAccount.html"));
 
-        app.get("/Login", ctx -> ctx.render("Login.html"));
-
-
+        app.get("/aboutUs", ctx -> ctx.render("AboutUs.html"));
+        app.get("/coffeeBrands", ctx -> ctx.render("CoffeeBrands.html"));
+        app.get("/coffeeType", ctx -> ctx.render("CoffeeType.html"));
+        app.get("/colorPanel", ctx -> ctx.render("ColorPanel.html"));
+        app.get("/contactUs", ctx -> ctx.render("ContactUs.html"));
+        app.get("/createAccount", ctx -> ctx.render("CreateAccount.html"));
+        app.get("/creatingPanel", ctx -> ctx.render("CreatingPanel.html"));
+        app.get("/favorites", ctx -> ctx.render("Favorites.html"));
+        app.get("/index", ctx -> ctx.render("Index.html"));
+        app.get("/login", ctx -> ctx.render("Login.html"));
+        app.get("/options", ctx -> ctx.render("Options.html"));
+        
+        app.post("/index", ctx -> login(ctx, connectionPool));
+        app.post("/index", ctx -> createUser(ctx, connectionPool));
     }
 
-    public static void creatUser() {
+    public static void createUser(Context ctx, ConnectionPool connectionPool) throws DatabaseException {
+        String firstname = ctx.formParam("createUsername");
+        String lastname = ctx.formParam("createUsername");
+        String email = ctx.formParam("createUsername");
+        String password = ctx.formParam("createPassword");
+        UserMapper createAccount = new UserMapper(connectionPool);
+
+        if (createAccount.createUser(firstname, lastname, email, password)) {
+            ctx.redirect("/");
+        } else {
+            ctx.result("Something went wrong. Check username or password");
+        }
     }
 
-    public static void login() {
+    public static void login(Context ctx, ConnectionPool connectionPool) throws DatabaseException {
+        String email = ctx.formParam("Login");
+        String password = ctx.formParam("Password");
+        UserMapper user = new UserMapper(connectionPool);
 
+        if (user.login(email, password)) {
+            ctx.redirect("/Homepage");
+        } else {
+            ctx.result("Something went wrong. Check username or password");
+        }
     }
 
     public static void logout() {
