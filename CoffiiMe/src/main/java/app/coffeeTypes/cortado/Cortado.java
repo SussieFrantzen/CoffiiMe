@@ -4,13 +4,13 @@ import java.awt.*;
 import app.entities.Coffee;
 import java.util.Map;
 
-public class Corado implements Coffee {
+public class Cortado implements Coffee {
 
     Color color;
     int volume;
-    Map<String, Integer> ingredients;
+    Map<String, Double> ingredients;
 
-    public Corado(Color color, int volume, Map<String, Integer> ingredients) {
+    public Cortado(Color color, int volume, Map<String, Double> ingredients) {
         this.color = color;
         this.volume = volume;
         this.ingredients = ingredients;
@@ -27,7 +27,7 @@ public class Corado implements Coffee {
     }
 
     @Override
-    public Map<String, Integer> getIngredients() {
+    public Map<String, Double> getIngredients() {
         return ingredients;
     }
 }

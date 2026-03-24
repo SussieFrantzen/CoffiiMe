@@ -8,9 +8,9 @@ public class FlatWhite implements Coffee {
 
     Color color;
     int volume;
-    Map<String, Integer> ingredients;
+    Map<String, Double> ingredients;
 
-    public FlatWhite(Color color, int volume, Map<String, Integer> ingredients) {
+    public FlatWhite(Color color, int volume, Map<String, Double> ingredients) {
         this.color = color;
         this.volume = volume;
         this.ingredients = ingredients;
@@ -27,7 +27,7 @@ public class FlatWhite implements Coffee {
     }
 
     @Override
-    public Map<String, Integer> getIngredients() {
+    public Map<String, Double> getIngredients() {
         return ingredients;
     }
 }

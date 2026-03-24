@@ -8,26 +8,26 @@ import java.util.Map;
 public class BeanNestle extends Ingredients {
 
 
-    int beanAmount;
+    int beanPercentages;
 
-    BeanNestle(Coffee coffee, int beanAmount){
+    BeanNestle(Coffee coffee, int beanPercentages){
         super(coffee);
-        this.beanAmount = beanAmount;
+        this.beanPercentages = beanPercentages;
     }
 
     @Override
     public Color getColor() {
-        return calculator.calculateNewColor(super.getColor(), super.getVolume(), new Color(107,20,73), beanAmount);
+        return calculator.calculateNewColor(super.getColor(), new Color(107,20,73), beanPercentages);
     }
 
     @Override
     public int getVolume() {
-        return calculator.calculateNewVolume(super.getVolume(), beanAmount);
+        return calculator.calculateNewVolume(super.getVolume());
     }
 
     @Override
-    public Map<String, Integer> getIngredients() {
-        return calculator.calculateNewIngredients(super.getIngredients(), "beanNestle", beanAmount);
+    public Map<String, Double> getIngredients() {
+        return calculator.calculateNewIngredients(super.getIngredients(), "beanNestle", beanPercentages);
     }
 
 }

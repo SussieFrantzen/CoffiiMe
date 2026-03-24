@@ -250,3 +250,42 @@ button {
 button:hover {
     background-color: #543c3c;
 }
+/*-----------Img---------------*/
+
+.foto {
+    display: flex;
+    gap: 30px;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.item img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+
+.item {
+    width: 80px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.bigFoto {
+    height: 400px;
+}
+
+.bigFoto img {
+    max-height: 100%;
+    width: auto;
+}
+
+
