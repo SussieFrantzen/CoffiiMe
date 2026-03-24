@@ -7,5 +7,5 @@ public interface Coffee {
 
     Color getColor();
     int getVolume();
-    Map<String, Integer> getIngredients();
+    Map<String, Double> getIngredients();
 }

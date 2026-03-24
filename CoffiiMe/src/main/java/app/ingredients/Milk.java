@@ -5,25 +5,25 @@ import java.util.Map;
 
 public class Milk extends Ingredients {
 
-    int milkAmount;
+    int milkPercentages;
 
-    public Milk(Coffee coffee, int milkAmount){
+    public Milk(Coffee coffee, int milkPercentages){
         super(coffee);
-        this.milkAmount = milkAmount;
+        this.milkPercentages = milkPercentages;
     }
 
     @Override
     public Color getColor() {
-        return calculator.calculateNewColor(super.getColor(), super.getVolume(), new Color(110,20,73), milkAmount);
+        return calculator.calculateNewColor(super.getColor(), new Color(110,20,73), milkPercentages);
     }
 
     @Override
     public int getVolume() {
-        return calculator.calculateNewVolume(super.getVolume(), milkAmount);
+        return calculator.calculateNewVolume(super.getVolume());
     }
 
     @Override
-    public Map<String, Integer> getIngredients() {
-        return calculator.calculateNewIngredients(super.getIngredients(),"Milk", milkAmount);
+    public Map<String, Double> getIngredients() {
+        return calculator.calculateNewIngredients(super.getIngredients(),"Milk", milkPercentages);
     }
 }

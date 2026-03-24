@@ -8,9 +8,9 @@ public class Mocha implements Coffee {
 
     Color color;
     int volume;
-    Map<String, Integer> ingredients;
+    Map<String, Double> ingredients;
 
-    public Mocha(Color color, int volume, Map<String, Integer> ingredients) {
+    public Mocha(Color color, int volume, Map<String, Double> ingredients) {
         this.color = color;
         this.volume = volume;
         this.ingredients = ingredients;
@@ -27,7 +27,7 @@ public class Mocha implements Coffee {
     }
 
     @Override
-    public Map<String, Integer> getIngredients() {
+    public Map<String, Double> getIngredients() {
         return ingredients;
     }
 }
