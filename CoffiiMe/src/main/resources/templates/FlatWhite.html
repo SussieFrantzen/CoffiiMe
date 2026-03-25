@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="da">
 <head>
     <meta charset="UTF-8">
     <title>CoffiiMe_Coffee_Type_FlatWhite</title>
@@ -8,6 +8,7 @@
 </head>
 
 <body>
+
 
 <header>
     <div class="header">
@@ -25,19 +26,30 @@
     </div>
 
 
-    <nav class="nav1">
-        <ul class="menu">
+    <ul class="menu">
+        <div class="left">
             <li><a th:href="@{/coffeeType}"> Coffee Type </a></li>
             <li><a th:href="@{/coffeeBrands}"> Coffee Brands </a></li>
+        </div>
+
+
+        <div class="right">
             <li><a th:href="@{/colorPanel}"> Color Panel </a></li>
             <li><a th:href="@{/creatingPanel}"> Creating Panel </a></li>
-        </ul>
+        </div>
+    </ul>
+
+
+    <nav class="navCenter">
+        <div class="menuLine">
+            <span class="diamond"></span>
+        </div>
     </nav>
 
 </header>
 
 <nav class="navCentrum">
-
+    <strong class="h1">Flat White</strong>
     <div class="content">
         <p class="bodyText">
             <img src="/img/coffeeImage/flatWhite.png" class="bigFoto" alt="billed af americano" align="right"/>
@@ -53,11 +65,9 @@
 
         <div class="formRecipes">
             <p class="bodyText"><strong> Kaffe Guide</strong> </p>
-            <p class="bodyText">Kaffe:  g</p>
-            <p class="bodyText">Milk: dl</p>
-            <p class="bodyText">water: dl</p>
-            </p>
-
+            <p class="bodyText">Kaffebønne: 18 g</p>
+            <p class="bodyText">Vand: 0,6 dl</p>
+            <p class="bodyText">Mælk: 1,5 dl</p>
         </div>
     </div>
 </nav>

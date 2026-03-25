@@ -9,6 +9,7 @@
 
 <body>
 
+
 <header>
     <div class="header">
         <div class="logoplace">
@@ -25,13 +26,24 @@
     </div>
 
 
-    <nav class="nav1">
-        <ul class="menu">
+    <ul class="menu">
+        <div class="left">
             <li><a th:href="@{/coffeeType}"> Coffee Type </a></li>
             <li><a th:href="@{/coffeeBrands}"> Coffee Brands </a></li>
+        </div>
+
+
+        <div class="right">
             <li><a th:href="@{/colorPanel}"> Color Panel </a></li>
             <li><a th:href="@{/creatingPanel}"> Creating Panel </a></li>
-        </ul>
+        </div>
+    </ul>
+
+
+    <nav class="navCenter">
+        <div class="menuLine">
+            <span class="diamond"></span>
+        </div>
     </nav>
 
 </header>
@@ -42,13 +54,13 @@
         About us
     </h1>
 
-    <div class="bodyText">
+    <div class="bodyTextCenter">
 
-        <br>CoffiiMe blev etableret med ønsket om, at dele den gode smagsoplevelse af en vel-brygget kop kaffe. </br>
-        <br>Vores vision var at det skulle være let at kunne lave sin ynglings kaffer eller finde inspiration til at nye </br>
-        <br>dklnad lfm aldmaalæmflafm lasmfæs  dklnadlf maldma  alæmfla fmlasmfæs  dklnadlfm aldmaa læm flafmlasmfæs</br>
-        <br>dklnad lfm aldmaalæmflafm lasmfæs  dklnadlf maldma alæmfla fmlasmfæs  dklnadlfm aldmaa læm flafmlasmfæs</br>
-        <br>dklnad lfm aldmaalæmflafm lasmfæs  dklnadlf maldma alæmfla fmlasmfæs  dklnadlfm aldmaa læm flafmlasmfæs</br>
+        CoffiiMe blev etableret med ønsket om, at dele den gode smagsoplevelse af en vel-brygget kop kaffe.
+        <br>Vores vision var at det skulle være let at kunne lave sin yndlings kaffer eller finde inspiration til at lave sine egne nye versioner.
+        <br>Det var vigtig for os at brugeren kunne vælge hvilken bønne gemme deres favoritter så det kunne lette deres hverdag.
+        <br>Derudover giver vores hjemmeside let adgang til at kunne døbe de specieldesignede kaffer et unikt navn.
+        <br>Hvem vil ikke gerne kunne imponere, så slipper du for selv at huske, hvordan svigermor bedst kunne lide sin kaffen. ;)
 
     </div>
 </nav>
