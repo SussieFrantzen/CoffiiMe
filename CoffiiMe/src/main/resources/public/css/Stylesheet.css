@@ -9,7 +9,6 @@ body {
 }
 
 
-
 .header {
     display: flex;
     align-items: flex-start;
@@ -30,7 +29,7 @@ body {
 
 /* ________________ text __________________  */
 
-h1 {
+.h1{
     font-family: "Baskerville Old Face";
     font-weight: 600;
     font-size: 35px;
@@ -64,6 +63,7 @@ h1 {
 
 .account a:hover {
     opacity: 0.7;
+    text-decoration: underline;
 }
 
 
@@ -73,8 +73,11 @@ h1 {
     font-family: "Baskerville Old Face";
     font-weight: 500;
     font-size: 22px;
-
+    flex: 2;
+    max-width: 1500px;
+    text-align: left;
 }
+
 
 /* ________________ padding __________________  */
 
@@ -96,13 +99,28 @@ h1 {
     padding: 100px 100px;
 }
 
-.navCenter{
-    padding-top: 30px;
+.navCenter {
+    padding-top: 100px;
     text-align: center;
-    max-width: 700px;
+
     margin: 0 auto;
 
 }
+
+.navCentrum {
+    padding-top: 30px;
+    text-align: center;
+    margin: auto;
+}
+
+
+/* beside is other*/
+.content {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+}
+
 
 /* ________________ Menu __________________  */
 
@@ -128,6 +146,7 @@ h1 {
 
 .menu a:hover {
     opacity: 0.7;
+    text-decoration: underline;
 }
 
 /* ________________ btn __________________  */
@@ -251,12 +270,18 @@ button:hover {
     background-color: #543c3c;
 
 }
+
 /*-----------Img---------------*/
 
 .foto {
     display: flex;
-    gap: 30px;
+    gap: 200px;
 }
+
+.foto a:hover {
+    opacity: 0.7;
+}
+
 
 .item {
     display: flex;
@@ -265,23 +290,22 @@ button:hover {
 }
 
 .item img {
-    width: 80px;
-    height: 80px;
+    width: 130px;
+    height: 130px;
     object-fit: contain;
 }
 
 .item {
-    width: 80px;
-    height: 100px;
+    width: 150px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 
-
 .bigFoto {
     height: 400px;
+    flex-shrink: 0;
 }
 
 .bigFoto img {
@@ -303,3 +327,43 @@ button:hover {
 
 /*///////////////////////////////////////////////////////*/
 
+.brandFoto {
+    height: 200px;
+    display: flex;
+    gap: 100px;
+}
+
+.brandFoto a:hover {
+    opacity: 0.7;
+}
+
+
+.brandItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.brandItem img {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+}
+
+.brandItem {
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/*-----------Recipes tebel---------------*/
+
+.formRecipes {
+    background-color: #F2D8AA;
+    padding: 20px;
+    border-radius: 10px;
+    width: 200px;
+    text-align: center;
+}
