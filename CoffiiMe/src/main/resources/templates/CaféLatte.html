@@ -4,48 +4,60 @@
     <meta charset="UTF-8">
     <title>CoffiiMe_Coffee_Type_CaféLatte</title>
 
-    <link rel="stylesheet" href="/css/Stylesheet.css">
-
+    <link rel="stylesheet" th:href="@{/css/Stylesheet.css}">
 </head>
+
 <body>
 
 <header>
     <div class="header">
         <div class="logoplace">
-            <a href="/index">
+            <a th:href="@{/index}">
                 <img src="/img/coffiime_logo.png" class="logoSize">
             </a>
         </div>
 
 
         <ul class="account">
-            <li><a href="/login"> Login </a></li>
-            <li><a href="/createAccount"> Create Account </a></li>
+            <li><a th:href="@{/login}"> Login </a></li>
+            <li><a th:href="@{/createAccount}"> Create Account </a></li>
         </ul>
     </div>
 
 
     <nav class="nav1">
         <ul class="menu">
-            <li><a href="/coffeeType"> Coffee Type </a></li>
-            <li><a href="/coffeeBrands"> Coffee Brands </a></li>
-            <li><a href="/colorPanel"> Color Panel </a></li>
-            <li><a href="/creatingPanel"> Creating Panel </a></li>
+            <li><a th:href="@{/coffeeType}"> Coffee Type </a></li>
+            <li><a th:href="@{/coffeeBrands}"> Coffee Brands </a></li>
+            <li><a th:href="@{/colorPanel}"> Color Panel </a></li>
+            <li><a th:href="@{/creatingPanel}"> Creating Panel </a></li>
         </ul>
     </nav>
 
 </header>
 
-<nav class="navCenter">
-    <div class="bodyText">
+<nav class="navCentrum">
 
+    <div class="content">
+        <p class="bodyText">
+            <img src="/img/coffeeImage/fotoCafeLatte.png" class="bigFoto" alt="billed af cafelatte" align="right"/>
         En café latte er en mild og cremet kaffedrik, der består af en espresso blandet med en større mængde varm mælk og kun et tyndt lag mælkeskum på toppen.
         Aromaen er blød og rund med en afdæmpet kaffeduft, hvor de ristede noter fra espressoen smelter sammen med mælkens let sødlige og varme karakter,
         ofte med diskrete nuancer af karamel eller chokolade. Smagen er meget mild og balanceret, hvor espressoens bitterhed træder i baggrunden og i stedet fremhæves
         af mælkens naturlige sødme og fylde. Den cremede tekstur gør oplevelsen blød og behagelig, næsten fløjlsagtig, og giver en let og tilgængelig kaffe,
         som er mindre intens end både espresso og cappuccino.
         Samlet set er en café latte en rolig og afrundet kaffeoplevelse, der egner sig godt til dem, der foretrækker en blødere og mere mælket kaffestil.
+        </p>
 
+
+        <div class="formRecipes">
+            <p class="bodyText"><strong> Kaffe Guide</strong> </p>
+            <p class="bodyText">Kaffe:  g</p>
+            <p class="bodyText">Milk: dl</p>
+            <p class="bodyText">water: dl</p>
+            </p>
+
+        </div>
     </div>
 </nav>
 
@@ -59,8 +71,8 @@
 
         <nav class="navbar">
             <ul class="footer">
-                <li><a href="/aboutUs"> About us </a></li>
-                <li><a href="/contactUs"> Contact us </a></li>
+                <li><a th:href="@{/aboutUs}"> About us </a></li>
+                <li><a th:href="@{/contactUs}"> Contact us </a></li>
             </ul>
         </nav>
     </div>

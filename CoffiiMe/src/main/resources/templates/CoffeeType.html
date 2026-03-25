@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>CoffiiMe_Coffee_Type</title>
 
-    <link rel="stylesheet" href="/css/Stylesheet.css">
+    <link rel="stylesheet" th:href="@{/css/Stylesheet.css}">
 </head>
 
 <body>
@@ -12,25 +12,25 @@
 <header>
     <div class="header">
         <div class="logoplace">
-            <a href="/index">
+            <a th:href="@{/index}">
                 <img src="/img/coffiime_logo.png" class="logoSize">
             </a>
         </div>
 
 
         <ul class="account">
-            <li><a href="/login"> Login </a></li>
-            <li><a href="/createAccount"> Create Account </a></li>
+            <li><a th:href="@{/login}"> Login </a></li>
+            <li><a th:href="@{/createAccount}"> Create Account </a></li>
         </ul>
     </div>
 
 
     <nav class="nav1">
         <ul class="menu">
-            <li><a href="/coffeeType"> Coffee Type </a></li>
-            <li><a href="/coffeeBrands"> Coffee Brands </a></li>
-            <li><a href="/colorPanel"> Color Panel </a></li>
-            <li><a href="/creatingPanel"> Creating Panel </a></li>
+            <li><a th:href="@{/coffeeType}"> Coffee Type </a></li>
+            <li><a th:href="@{/coffeeBrands}"> Coffee Brands </a></li>
+            <li><a th:href="@{/colorPanel}"> Color Panel </a></li>
+            <li><a th:href="@{/creatingPanel}"> Creating Panel </a></li>
         </ul>
     </nav>
 
@@ -38,31 +38,34 @@
 
 <nav class="navCenter">
 
-        <div class="foto">
+    <div class="foto">
 
-            <a th:href="@{/americano}" class="item">
-                <img src="/img/coffeeImage/fotoAmericano.png">
-                <span>Americano</span>
-            </a>
+        <a th:href="@{/americano}" class="item">
+            <img src="/img/coffeeImage/fotoAmericano.png">
+            <span class="bodyText">Americano</span>
+        </a>
 
-            <a href="/caféLatte" class="item">
-                <img src="/img/coffeeImage/fotoCafeLatte.png">
-            </a>
+        <a th:href="@{/cafeLatte}" class="item">
+            <img src="/img/coffeeImage/fotoCafeLatte.png">
+            <span class="bodyText">CaféLatte</span>
+        </a>
 
-            <a href="/cappuccino" class="item">
-                <img src="/img/coffeeImage/cappuccino.png">
-                <span>Cappuccino</span>
-            </a>
+        <a th:href="@{/cappuccino}" class="item">
+            <img src="/img/coffeeImage/cappuccino.png">
+            <span class="bodyText">Cappuccino</span>
+        </a>
 
-            <a href="/cortado" class="item">
-                <img src="/img/coffeeImage/cortado.png">
-            </a>
+        <a th:href="@{/cortado}" class="item">
+            <img src="/img/coffeeImage/cortado.png">
+            <span class="bodyText"> Cortado</span>
+        </a>
 
-            <a href="/espresso" class="item">
-                <img src="/img/coffeeImage/macchiato.png">
-            </a>
+        <a th:href="@{/espresso}" class="item">
+            <img src="/img/coffeeImage/espresso.png">
+            <span class="bodyText">Espresso</span>
+        </a>
 
-        </div>
+    </div>
 
     <p style="padding-top: 30px">
 
@@ -70,27 +73,31 @@
     <div class="foto">
 
 
-        <a href="/flatWhite" class="item">
-            <img src="/img/coffeeImage/mocha.png">
-
+        <a th:href="@{/flatWhite}" class="item">
+            <img src="/img/coffeeImage/flatWhite.png">
+            <span class="bodyText">Flat White</span>
         </a>
 
 
-        <a href="/latteMacchiato" class="item">
-            <img src="/img/coffeeImage/fotoAmericano.png">
+        <a th:href="@{/latteMacchiato}" class="item">
+            <img src="/img/coffeeImage/latteMacchiato.png">
+            <span class="bodyText">Latte Macchiato</span>
         </a>
 
-        <a href="/lungo" class="item">
-            <img src="/img/coffeeImage/fotoCafeLatte.png">
+        <a th:href="@{/lungo}" class="item">
+            <img src="/img/coffeeImage/lungo.png">
+            <span class="bodyText">Lungo</span>
         </a>
 
 
-        <a href="/macchiato" class="item">
+        <a th:href="@{/macchiato}" class="item">
             <img src="/img/coffeeImage/macchiato.png">
+            <span class="bodyText">Macchiato</span>
         </a>
 
-        <a href="/mocha" class="item">
+        <a th:href="@{/mocha}" class="item">
             <img src="/img/coffeeImage/mocha.png">
+            <span class="bodyText">Mocha</span>
         </a>
 
     </div>
@@ -100,14 +107,13 @@
 </body>
 
 
-
 <footer>
     <div class="footer-content">
 
         <nav class="navbar">
             <ul class="footer">
-                <li><a href="/aboutUs"> About us </a></li>
-                <li><a href="/contactUs"> Contact us </a></li>
+                <li><a th:href="@{/aboutUs}"> About us </a></li>
+                <li><a th:href="@{/contactUs}"> Contact us </a></li>
             </ul>
         </nav>
     </div>

@@ -4,41 +4,43 @@
     <meta charset="UTF-8">
     <title>CoffiiMe_Coffee_Type_Cappoucciono</title>
 
-    <link rel="stylesheet" href="/css/Stylesheet.css">
-
+    <link rel="stylesheet" th:href="@{/css/Stylesheet.css}">
 </head>
+
 <body>
 
 <header>
     <div class="header">
         <div class="logoplace">
-            <a href="/index">
+            <a th:href="@{/index}">
                 <img src="/img/coffiime_logo.png" class="logoSize">
             </a>
         </div>
 
 
         <ul class="account">
-            <li><a href="/login"> Login </a></li>
-            <li><a href="/createAccount"> Create Account </a></li>
+            <li><a th:href="@{/login}"> Login </a></li>
+            <li><a th:href="@{/createAccount}"> Create Account </a></li>
         </ul>
     </div>
 
 
     <nav class="nav1">
         <ul class="menu">
-            <li><a href="/coffeeType"> Coffee Type </a></li>
-            <li><a href="/coffeeBrands"> Coffee Brands </a></li>
-            <li><a href="/colorPanel"> Color Panel </a></li>
-            <li><a href="/creatingPanel"> Creating Panel </a></li>
+            <li><a th:href="@{/coffeeType}"> Coffee Type </a></li>
+            <li><a th:href="@{/coffeeBrands}"> Coffee Brands </a></li>
+            <li><a th:href="@{/colorPanel}"> Color Panel </a></li>
+            <li><a th:href="@{/creatingPanel}"> Creating Panel </a></li>
         </ul>
     </nav>
 
 </header>
 
+<nav class="navCentrum">
 
-<nav class="navCenter">
-    <div class="bodyText">
+    <div class="content">
+        <p class="bodyText">
+            <img src="/img/coffeeImage/cappuccino.png" class="bigFoto" alt="billed af cappuccino" align="right"/>
 
         En cappuccino er en klassisk kaffedrik, der består af en espresso toppet med varm, cremet mælk og et lag fint mælkeskum,
         hvilket skaber en harmonisk balance mellem styrke og blødhed. Aromaen er fyldig og indbydende med tydelige noter af espressoens ristede karakter,
@@ -47,25 +49,35 @@
         i munden, samtidig med at det fremhæver kaffens dybere smagsnuancer.
         Samlet set giver en cappuccino en cremet og behagelig kaffeoplevelse, hvor intensitet og blødhed går hånd i hånd i en velafstemt helhed.
 
+        </p>
+
+
+        <div class="formRecipes">
+            <p class="bodyText"><strong> Kaffe Guide</strong> </p>
+            <p class="bodyText">Kaffe:  g</p>
+            <p class="bodyText">Milk: dl</p>
+            <p class="bodyText">water: dl</p>
+            </p>
+
+        </div>
     </div>
 </nav>
 
 
 
-
 </body>
+
 
 <footer>
     <div class="footer-content">
 
         <nav class="navbar">
             <ul class="footer">
-                <li><a href="/aboutUs"> About us </a></li>
-                <li><a href="/contactUs"> Contact us </a></li>
+                <li><a th:href="@{/aboutUs}"> About us </a></li>
+                <li><a th:href="@{/contactUs}"> Contact us </a></li>
             </ul>
         </nav>
     </div>
 </footer>
-
 
 </html>
