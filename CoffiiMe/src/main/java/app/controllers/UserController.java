@@ -41,6 +41,11 @@ public class UserController {
         app.get("/mocha", ctx -> ctx.render("Mocha.html"));
 
 
+        //brands link
+        app.get("/nesCafe", ctx -> ctx.render("NesCafe.html"));
+        app.get("/merrild", ctx -> ctx.render("Merrild.html"));
+        app.get("/davidoff", ctx -> ctx.render("Davidoff.html"));
+
     }
 
 
