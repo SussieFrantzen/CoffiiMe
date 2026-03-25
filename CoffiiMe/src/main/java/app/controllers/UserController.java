@@ -23,14 +23,22 @@ public class UserController {
         app.get("/login", ctx -> ctx.render("Login.html"));
         app.get("/options", ctx -> ctx.render("Options.html"));
         
-        app.post("/index", ctx -> login(ctx, connectionPool));
-        app.post("/index", ctx -> createUser(ctx, connectionPool));
+        //app.post("/index", ctx -> login(ctx, connectionPool));
+        app.post("/createAccount", ctx -> createUser(ctx, connectionPool));
 
 
 
         // coffee types picture link
-
-
+        app.get("/americano", ctx -> ctx.render("Americano.html"));
+        app.get("/cafeLatte", ctx -> ctx.render("CaféLatte.html"));
+        app.get("/cappuccino", ctx -> ctx.render("Cappuccino.html"));
+        app.get("/cortado", ctx -> ctx.render("Cortado.html"));
+        app.get("/espresso", ctx -> ctx.render("Espresso.html"));
+        app.get("/flatWhite", ctx -> ctx.render("FlatWhite.html"));
+        app.get("/latteMacchiato", ctx -> ctx.render("LatteMacchiato.html"));
+        app.get("/lungo", ctx -> ctx.render("Lungo.html"));
+        app.get("/macchiato", ctx -> ctx.render("Macchiato.html"));
+        app.get("/mocha", ctx -> ctx.render("Mocha.html"));
 
 
     }
