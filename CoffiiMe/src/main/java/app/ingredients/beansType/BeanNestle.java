@@ -9,7 +9,28 @@ import java.util.Map;
 public class BeanNestle extends Coffee {
 
 
-    public BeanNestle(String name, double volume, Map<String, Double> ingredient, Color color) {
-        super(name, volume, ingredient, color);
+    double totalVolume;
+    public BeanNestle(double totalVolume) {
+        this.totalVolume = totalVolume;
+    }
+
+    @Override
+    public String getName() {
+        return "";
+    }
+
+    @Override
+    public double getVolume() {
+        return 0;
+    }
+
+    @Override
+    public Map<String, Double> getIngredients() {
+        return Map.of();
+    }
+
+    @Override
+    public Color getColor() {
+        return null;
     }
 }

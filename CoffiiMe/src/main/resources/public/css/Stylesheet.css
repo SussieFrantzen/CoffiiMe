@@ -314,6 +314,19 @@ button:hover {
 }
 
 
+/*///////////////////////////////////////////////////////*/
+
+.placing{
+    padding-left: 600px;
+}
+
+.colorPanel{
+    padding: 100px;
+    background-color: blue;
+}
+
+/*///////////////////////////////////////////////////////*/
+
 .brandFoto {
     height: 200px;
     display: flex;

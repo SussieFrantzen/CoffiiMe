@@ -5,14 +5,22 @@ import java.util.Map;
 
 public class Water extends Coffee {
 
+    Coffee coffee;
+    double totalVolume;
 
-    public Water(String name, double volume, Map<String, Double> ingredient, Color color) {
-        super(name, volume, ingredient, color);
+    public Water(Coffee coffee, double totalVolume){
+        this.coffee = coffee;
+        this.totalVolume = totalVolume;
     }
 
     @Override
     public Color getColor() {
         return null;
+    }
+
+    @Override
+    public String getName() {
+        return "";
     }
 
     @Override

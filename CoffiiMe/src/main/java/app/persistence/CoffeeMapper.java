@@ -4,6 +4,8 @@ import app.entities.Coffee;
 import app.entities.Users;
 import app.ingredients.Milk;
 import app.ingredients.Water;
+import app.ingredients.beansType.BeanDavidoff;
+import app.ingredients.beansType.BeanNestle;
 
 import java.awt.*;
 import java.sql.Connection;
@@ -22,6 +24,7 @@ public class CoffeeMapper {
         this.connectionPool = connectionPool;
     }
 
+    /*
     public List<Coffee> getExistingCoffee(String beanType, double volume){
         List<Coffee> existingCoffee = new ArrayList<>();
         Map<String, Double> ingredient = new HashMap<>();
@@ -59,8 +62,15 @@ public class CoffeeMapper {
         }
         return null;
     }
+     */
 
-    public void createCoffee(String beanType, int totalVolume, int beanPercentages, int milkPercentages, int waterPercentages){
+    public Coffee createCoffee(String beanType, int totalVolume, int beanPercentages, int milkPercentages, int waterPercentages){
+
+        Coffee coffee = new BeanNestle(23);
+        coffee = new Water(coffee,23);
+        coffee = new Milk(coffee,23);
+
+        return coffee;
     }
 
     public boolean addToFavorites(Users user_id, Coffee coffename){
