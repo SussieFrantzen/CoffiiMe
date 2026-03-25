@@ -18,8 +18,8 @@ public class CoffeController {
         String coffeeType = ctx.formParam("");
         int totalVolume = Integer.parseInt(ctx.formParam(""));
 
-        CoffeeMapper coffeeMapper = new CoffeeMapper();
-        coffeeMapper.getExistingCoffee(beanType, coffeeType, totalVolume);
+        CoffeeMapper coffeeMapper = new CoffeeMapper(connectionPool);
+        coffeeMapper.getExistingCoffee(beanType, totalVolume);
     }
 
     public static void createCoffee(Context ctx, ConnectionPool connectionPool) {
@@ -29,7 +29,7 @@ public class CoffeController {
         int milkPercentages = Integer.parseInt(ctx.formParam(""));
         int waterPercentages = Integer.parseInt(ctx.formParam(""));
 
-        CoffeeMapper coffeMapper = new CoffeeMapper();
+        CoffeeMapper coffeMapper = new CoffeeMapper(connectionPool);
         coffeMapper.createCoffee(beanType, totalVolume, beanPercentages, milkPercentages, waterPercentages);
     }
 

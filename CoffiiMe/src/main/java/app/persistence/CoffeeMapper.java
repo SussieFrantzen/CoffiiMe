@@ -22,7 +22,7 @@ public class CoffeeMapper {
         this.connectionPool = connectionPool;
     }
 
-    public List<Coffee> getExistingCoffee(String beanBrand, double volume){
+    public List<Coffee> getExistingCoffee(String beanType, double volume){
         List<Coffee> existingCoffee = new ArrayList<>();
         Map<String, Double> ingredient = new HashMap<>();
 
@@ -32,7 +32,7 @@ public class CoffeeMapper {
         try (Connection connection = connectionPool.getConnection()) {
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
 
-                ps.setString(1, beanBrand);
+                ps.setString(1, beanType);
                 ResultSet rs = ps.executeQuery();
                 if (rs.next()) {
 
@@ -57,12 +57,10 @@ public class CoffeeMapper {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
+        return null;
     }
 
     public void createCoffee(String beanType, int totalVolume, int beanPercentages, int milkPercentages, int waterPercentages){
-
-
-
     }
 
     public boolean addToFavorites(Users user_id, Coffee coffename){
@@ -70,6 +68,6 @@ public class CoffeeMapper {
     }
 
     public List<Coffee> getFavorites(Users user_id){
-        return favorites;
+        return null;
     }
 }

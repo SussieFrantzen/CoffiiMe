@@ -6,6 +6,10 @@ import java.util.Map;
 public class Water extends Coffee {
 
 
+    public Water(String name, double volume, Map<String, Double> ingredient, Color color) {
+        super(name, volume, ingredient, color);
+    }
+
     @Override
     public Color getColor() {
         return null;
