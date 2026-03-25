@@ -9,18 +9,7 @@ import java.util.Map;
 public class BeanNestle extends Coffee {
 
 
-    @Override
-    public Color getColor() {
-        return null;
-    }
-
-    @Override
-    public double getVolume() {
-        return 0;
-    }
-
-    @Override
-    public Map<String, Double> getIngredients() {
-        return Map.of();
+    public BeanNestle(String name, double volume, Map<String, Double> ingredient, Color color) {
+        super(name, volume, ingredient, color);
     }
 }

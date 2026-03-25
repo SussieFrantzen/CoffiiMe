@@ -32,9 +32,6 @@ public class App {
         UserController.addRoutes(app, connectionPool);
 
 
-        CoffeeMapper m = new CoffeeMapper();
-       // m.createCoffee();
-
 
 
 
