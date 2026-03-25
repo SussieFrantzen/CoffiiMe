@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="da">
 <head>
     <meta charset="UTF-8">
     <title>CoffiiMe_Coffee_Type</title>
@@ -8,6 +8,7 @@
 </head>
 
 <body>
+
 
 <header>
     <div class="header">
@@ -25,13 +26,24 @@
     </div>
 
 
-    <nav class="nav1">
-        <ul class="menu">
+    <ul class="menu">
+        <div class="left">
             <li><a th:href="@{/coffeeType}"> Coffee Type </a></li>
             <li><a th:href="@{/coffeeBrands}"> Coffee Brands </a></li>
+        </div>
+
+
+        <div class="right">
             <li><a th:href="@{/colorPanel}"> Color Panel </a></li>
             <li><a th:href="@{/creatingPanel}"> Creating Panel </a></li>
-        </ul>
+        </div>
+    </ul>
+
+
+    <nav class="navCenter">
+        <div class="menuLine">
+            <span class="diamond"></span>
+        </div>
     </nav>
 
 </header>
@@ -47,7 +59,7 @@
 
         <a th:href="@{/cafeLatte}" class="item">
             <img src="/img/coffeeImage/fotoCafeLatte.png">
-            <span class="bodyText">CaféLatte</span>
+            <span class="bodyText">Caffé Latte</span>
         </a>
 
         <a th:href="@{/cappuccino}" class="item">

@@ -30,7 +30,7 @@ public class UserController {
 
         // coffee types picture link
         app.get("/americano", ctx -> ctx.render("Americano.html"));
-        app.get("/cafeLatte", ctx -> ctx.render("CaféLatte.html"));
+        app.get("/cafeLatte", ctx -> ctx.render("CafféLatte.html"));
         app.get("/cappuccino", ctx -> ctx.render("Cappuccino.html"));
         app.get("/cortado", ctx -> ctx.render("Cortado.html"));
         app.get("/espresso", ctx -> ctx.render("Espresso.html"));
@@ -42,9 +42,9 @@ public class UserController {
 
 
         //brands link
-        app.get("/nesCafe", ctx -> ctx.render("NesCafe.html"));
-        app.get("/merrild", ctx -> ctx.render("Merrild.html"));
-        app.get("/davidoff", ctx -> ctx.render("Davidoff.html"));
+        app.get("/brand3", ctx -> ctx.render("Brand3.html"));
+        app.get("/brand2", ctx -> ctx.render("brand2.html"));
+        app.get("/brand1", ctx -> ctx.render("Brand1.html"));
 
     }
 

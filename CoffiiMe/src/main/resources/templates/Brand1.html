@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="da">
 <head>
     <meta charset="UTF-8">
-    <title>CoffiiMe_Coffee_Brand_Merrild</title>
+    <title>CoffiiMe_Coffee_Brand_Davidoff</title>
 
     <link rel="stylesheet" th:href="@{/css/Stylesheet.css}">
 </head>
 
 <body>
+
 
 <header>
     <div class="header">
@@ -25,19 +26,39 @@
     </div>
 
 
-    <nav class="nav1">
-        <ul class="menu">
+    <ul class="menu">
+        <div class="left">
             <li><a th:href="@{/coffeeType}"> Coffee Type </a></li>
             <li><a th:href="@{/coffeeBrands}"> Coffee Brands </a></li>
+        </div>
+
+
+        <div class="right">
             <li><a th:href="@{/colorPanel}"> Color Panel </a></li>
             <li><a th:href="@{/creatingPanel}"> Creating Panel </a></li>
-        </ul>
+        </div>
+    </ul>
+
+
+    <nav class="navCenter">
+        <div class="menuLine">
+            <span class="diamond"></span>
+        </div>
     </nav>
 
 </header>
 
-<nav class="navCenter">
 
+<nav class ="navCenter">
+
+    <h1>
+        brand 1
+    </h1>
+
+    <div class="bodyTextCenter">
+
+
+    </div>
 </nav>
 
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="da">
 <head>
     <meta charset="UTF-8">
     <title>CoffiiMe_Coffe_Brands</title>
@@ -8,6 +8,7 @@
 </head>
 
 <body>
+
 
 <header>
     <div class="header">
@@ -25,30 +26,42 @@
     </div>
 
 
-    <nav class="nav1">
-        <ul class="menu">
+    <ul class="menu">
+        <div class="left">
             <li><a th:href="@{/coffeeType}"> Coffee Type </a></li>
             <li><a th:href="@{/coffeeBrands}"> Coffee Brands </a></li>
+        </div>
+
+
+        <div class="right">
             <li><a th:href="@{/colorPanel}"> Color Panel </a></li>
             <li><a th:href="@{/creatingPanel}"> Creating Panel </a></li>
-        </ul>
+        </div>
+    </ul>
+
+
+    <nav class="navCenter">
+        <div class="menuLine">
+            <span class="diamond"></span>
+        </div>
     </nav>
 
 </header>
 
+<p style="padding-top: 70px;"> </p>
 
 <nav class="navCenter">
     <div class="brandFoto">
-        <a th:href="@{/nesCafe}" class="brandItem">
-            <img src="/img/nescafe.png">
+        <a th:href="@{/brand1}" class="brandItem">
+            <img src="/img/coffiime_logo.png">
         </a>
 
-        <a th:href="@{/davidoff}" class="brandItem">
-            <img src="/img/davidoff.png">
+        <a th:href="@{/brand2}" class="brandItem">
+            <img src="/img/coffiime_logo.png">
         </a>
 
-        <a th:href="@{/merrild}" class="brandItem">
-            <img src="/img/merrild_logo.png">
+        <a th:href="@{/brand3}" class="brandItem">
+            <img src="/img/coffiime_logo.png">
         </a>
     </div>
 </nav>
