@@ -43,9 +43,9 @@ public class UserController {
 
 
         //brands link
-        app.get("/brand3", ctx -> ctx.render("Brand3.html"));
-        app.get("/brand2", ctx -> ctx.render("brand2.html"));
-        app.get("/brand1", ctx -> ctx.render("Brand1.html"));
+        app.get("/coffeDoff", ctx -> ctx.render("CoffeeDoff.html"));
+        app.get("/bean", ctx -> ctx.render("Bean.html"));
+        app.get("/kaf", ctx -> ctx.render("Kaf.html"));
 
     }
 
