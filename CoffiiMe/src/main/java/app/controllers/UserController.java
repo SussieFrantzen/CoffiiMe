@@ -25,6 +25,7 @@ public class UserController {
         
         //app.post("/index", ctx -> login(ctx, connectionPool));
         app.post("/createAccount", ctx -> createUser(ctx, connectionPool));
+        app.post("/login", ctx -> login(ctx,connectionPool));
 
 
 
@@ -51,10 +52,10 @@ public class UserController {
 
 
     public static void createUser(Context ctx, ConnectionPool connectionPool) throws DatabaseException {
-        String firstname = ctx.formParam("createUsername");
-        String lastname = ctx.formParam("createUsername");
-        String email = ctx.formParam("createUsername");
-        String password = ctx.formParam("createPassword");
+        String firstname = ctx.formParam("firstname");
+        String lastname = ctx.formParam("lastname");
+        String email = ctx.formParam("email");
+        String password = ctx.formParam("password");
         UserMapper createAccount = new UserMapper(connectionPool);
 
         if (createAccount.createUser(firstname, lastname, email, password)) {
@@ -65,12 +66,12 @@ public class UserController {
     }
 
     public static void login(Context ctx, ConnectionPool connectionPool) throws DatabaseException {
-        String email = ctx.formParam("Login");
-        String password = ctx.formParam("Password");
+        String email = ctx.formParam("email");
+        String password = ctx.formParam("password");
         UserMapper user = new UserMapper(connectionPool);
 
         if (user.login(email, password)) {
-            ctx.redirect("/Homepage");
+            ctx.redirect("/index");
         } else {
             ctx.result("Something went wrong. Check username or password");
         }
