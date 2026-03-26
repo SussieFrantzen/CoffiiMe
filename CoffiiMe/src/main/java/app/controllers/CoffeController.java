@@ -16,7 +16,7 @@ public class CoffeController {
         //app.get("/color", ctx -> ctx.json(new Integer[]{255,200,5}));
 
 
-        app.get("/color", ctx -> createCoffee(ctx, connectionPool));
+        app.post("/slider", ctx -> createCoffee(ctx, connectionPool));
     }
 
 
@@ -33,6 +33,7 @@ public class CoffeController {
 
     public static void createCoffee(Context ctx, ConnectionPool connectionPool) {
 
+        /*
         String beanType = ctx.formParam("");
         int totalVolume = Integer.parseInt(ctx.formParam(""));
         int beanPercentages = Integer.parseInt(ctx.formParam(""));
@@ -47,6 +48,42 @@ public class CoffeController {
         String rgb = "rgb(" + color.getRed() + "," + color.getGreen() + "," + color.getBlue() + ")";
         ctx.result(rgb);
 
+         */
+
+        try {
+            // Parse JSON sent from frontend: { "sliderValue": 42 }
+            int sliderValue = ctx.bodyAsClass(SliderValue.class).getSliderValue();
+
+            System.out.println("Received slider value: " + sliderValue);
+
+            // Example: you can now do something with CoffeeMapper
+            CoffeeMapper coffeeMapper = new CoffeeMapper(connectionPool);
+            // coffeeMapper.saveSliderValue(sliderValue); // example method
+
+            ctx.json("Slider value received: " + sliderValue);
+        } catch (Exception e) {
+            ctx.status(400).result("Invalid data: " + e.getMessage());
+        }
+    }
+
+    public static class SliderValue {
+        private int sliderValue;
+
+        public int getSliderValue() {
+            return sliderValue;
+        }
+
+        public void setSliderValue(int sliderValue) {
+            this.sliderValue = sliderValue;
+        }
+
+        public static void addToFavorites() {
+            // your existing code
+        }
+
+        public static void getFavorites() {
+            // your existing code
+        }
 
     }
 

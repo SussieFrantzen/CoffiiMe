@@ -9,6 +9,9 @@ import app.config.ThymeleafConfig;
 import app.controllers.UserController;
 import app.persistence.ConnectionPool;
 
+import java.util.Map;
+
+
 public class App {
 
     private static final String USER = "postgres";
@@ -26,16 +29,9 @@ public class App {
             config.fileRenderer(new JavalinThymeleaf(ThymeleafConfig.templateEngine()));
         }).start(7070);
 
-        app.get("/", ctx -> ctx.render("Index.html"));
 
-       ///TO DO
+        app.get("/", ctx -> ctx.render("Index.html"));
         UserController.addRoutes(app, connectionPool);
 
-
-
-
     }
-
-
-
 }
