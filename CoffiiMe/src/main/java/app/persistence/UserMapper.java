@@ -40,27 +40,30 @@ public class UserMapper {
 
     public boolean createUser(String firstname, String lastname, String email, String password) throws DatabaseException {
         String createUser = "INSERT INTO users (firstname, lastname, email) VALUES (?, ?, ?)";
-
+  String createAccount = "INSERT INTO account (user_id, password) VALUES (?, ?)";
+      
         try (Connection connection = connectionPool.getConnection()) {
             connection.setAutoCommit(false);
-
+          
             int userId;
-
+          
             try (PreparedStatement user = connection.prepareStatement(createUser, PreparedStatement.RETURN_GENERATED_KEYS)) {
                 user.setString(1, firstname);
                 user.setString(2, lastname);
                 user.setString(3, email);
 
                 user.executeUpdate();
+              
                 ResultSet rs = user.getGeneratedKeys();
                 if (rs.next()) {
                     userId = rs.getInt(1);
+                   
                 } else {
                     throw new DatabaseException("Kunne ikke hente user_id");
+
                 }
             }
-
-            String createAccount = "INSERT INTO account (user_id, password) VALUES (?, ?)";
+          
             try (PreparedStatement account = connection.prepareStatement(createAccount)) {
                 account.setInt(1, userId);
                 account.setString(2, password);
