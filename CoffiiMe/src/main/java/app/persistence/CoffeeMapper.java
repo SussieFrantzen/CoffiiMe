@@ -4,18 +4,9 @@ import app.entities.Coffee;
 import app.entities.Users;
 import app.ingredients.Milk;
 import app.ingredients.Water;
-import app.ingredients.beansType.BeanDavidoff;
-import app.ingredients.beansType.BeanNestle;
+import app.ingredients.beansType.BeanKaf;
 
-import java.awt.*;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class CoffeeMapper {
 
@@ -66,7 +57,7 @@ public class CoffeeMapper {
 
     public Coffee createCoffee(String beanType, int totalVolume, int beanPercentages, int milkPercentages, int waterPercentages){
 
-        Coffee coffee = new BeanNestle(23);
+        Coffee coffee = new BeanKaf(23);
         coffee = new Water(coffee,23);
         coffee = new Milk(coffee,23);
 

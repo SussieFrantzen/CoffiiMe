@@ -40,7 +40,6 @@ public class UserMapper {
 
     public boolean createUser(String firstname, String lastname, String email, String password) throws DatabaseException {
         String createUser = "INSERT INTO users (firstname, lastname, email) VALUES (?, ?, ?)";
-        String createAccount = "INSERT INTO account (user_id, password) VALUES (?, ?)";
 
         try (Connection connection = connectionPool.getConnection()) {
             connection.setAutoCommit(false);
@@ -61,6 +60,7 @@ public class UserMapper {
                 }
             }
 
+            String createAccount = "INSERT INTO account (user_id, password) VALUES (?, ?)";
             try (PreparedStatement account = connection.prepareStatement(createAccount)) {
                 account.setInt(1, userId);
                 account.setString(2, password);

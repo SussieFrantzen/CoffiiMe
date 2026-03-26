@@ -6,11 +6,11 @@ import app.entities.Coffee;
 import java.awt.*;
 import java.util.Map;
 
-public class BeanNestle extends Coffee {
+public class BeanKaf extends Coffee {
 
 
     double totalVolume;
-    public BeanNestle(double totalVolume) {
+    public BeanKaf(double totalVolume) {
         this.totalVolume = totalVolume;
     }
 
