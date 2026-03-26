@@ -51,14 +51,8 @@ public class CoffeController {
          */
 
         try {
-            // Parse JSON sent from frontend: { "sliderValue": 42 }
             int sliderValue = ctx.bodyAsClass(SliderValue.class).getSliderValue();
-
-            System.out.println("Received slider value: " + sliderValue);
-
-            // Example: you can now do something with CoffeeMapper
             CoffeeMapper coffeeMapper = new CoffeeMapper(connectionPool);
-            // coffeeMapper.saveSliderValue(sliderValue); // example method
 
             ctx.json("Slider value received: " + sliderValue);
         } catch (Exception e) {

@@ -348,11 +348,12 @@ button:hover {
 /*///////////////////////////////////////////////////////*/
 
 .placing{
-    padding-left: 600px;
+    padding-top: 100px;
+    padding-left: 130px;
 }
 
 .colorPanel{
-    padding: 100px;
+    padding: 150px;
     background-color: blue;
 }
 

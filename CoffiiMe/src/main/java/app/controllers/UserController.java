@@ -25,6 +25,7 @@ public class UserController {
         
         //app.post("/index", ctx -> login(ctx, connectionPool));
         app.post("/createAccount", ctx -> createUser(ctx, connectionPool));
+        app.post("/login", ctx -> login(ctx, connectionPool));
 
 
 
@@ -42,9 +43,9 @@ public class UserController {
 
 
         //brands link
-        app.get("/brand3", ctx -> ctx.render("Brand3.html"));
-        app.get("/brand2", ctx -> ctx.render("brand2.html"));
-        app.get("/brand1", ctx -> ctx.render("Brand1.html"));
+        app.get("/coffeDoff", ctx -> ctx.render("CoffeeDoff.html"));
+        app.get("/bean", ctx -> ctx.render("Bean.html"));
+        app.get("/kaf", ctx -> ctx.render("Kaf.html"));
 
     }
 
@@ -54,7 +55,7 @@ public class UserController {
         String firstname = ctx.formParam("createUsername");
         String lastname = ctx.formParam("createUsername");
         String email = ctx.formParam("createUsername");
-        String password = ctx.formParam("createPassword");
+        String password = ctx.formParam("createUsername");
         UserMapper createAccount = new UserMapper(connectionPool);
 
         if (createAccount.createUser(firstname, lastname, email, password)) {
@@ -65,8 +66,8 @@ public class UserController {
     }
 
     public static void login(Context ctx, ConnectionPool connectionPool) throws DatabaseException {
-        String email = ctx.formParam("Login");
-        String password = ctx.formParam("Password");
+        String email = ctx.formParam("login");
+        String password = ctx.formParam("password");
         UserMapper user = new UserMapper(connectionPool);
 
         if (user.login(email, password)) {

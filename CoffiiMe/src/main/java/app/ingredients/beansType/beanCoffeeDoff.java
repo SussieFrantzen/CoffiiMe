@@ -1,4 +1,4 @@
 package app.ingredients.beansType;
 
-public class BeanMerild {
+public class beanCoffeeDoff {
 }
