@@ -7,7 +7,11 @@ import app.exception.DatabaseException;
 import app.ingredients.Milk;
 import app.ingredients.Water;
 import app.ingredients.beansType.BeanKaf;
+import com.sun.net.httpserver.HttpExchange;
+import com.sun.net.httpserver.HttpServer;
 
+import java.io.InputStream;
+import java.net.InetSocketAddress;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -51,7 +55,53 @@ public class CoffeeMapper {
         }
     }
 
+    /*
+    public static List<Double> GetColors() throws Exception {
+        List<Double> storedValues = new ArrayList<>();
+
+        HttpServer server = HttpServer.create(new InetSocketAddress(8080), 0);
+
+        server.createContext("/save", (HttpExchange exchange) -> {
+            if ("POST".equals(exchange.getRequestMethod())) {
+
+                InputStream is = exchange.getRequestBody();
+                String body = new String(is.readAllBytes());
+
+                body = body.replaceAll("[^0-9.,]", "");
+                String[] parts = body.split(",");
+
+                storedValues.clear();
+                for (String p : parts) {
+                    if (!p.isEmpty()) {
+                        storedValues.add(Double.parseDouble(p));
+                    }
+                }
+
+                System.out.println("Saved: " + storedValues);
+
+                String response = "OK";
+                exchange.sendResponseHeaders(200, response.length());
+                exchange.getResponseBody().write(response.getBytes());
+                exchange.close();
+            }
+        });
+
+        server.createContext("/values", (HttpExchange exchange) -> {
+            String response = storedValues.toString();
+            exchange.sendResponseHeaders(200, response.length());
+            exchange.getResponseBody().write(response.getBytes());
+            exchange.close();
+        });
+
+        server.start();
+        System.out.println("Server running on http://localhost:8080");
+
+        return storedValues;
+    }
+    */
+
     public Coffee createCoffee(String beanType, int totalVolume, int beanPercentages, int milkPercentages, int waterPercentages) {
+
 
         Coffee coffee = new BeanKaf(23);
         coffee = new Water(coffee, 23);

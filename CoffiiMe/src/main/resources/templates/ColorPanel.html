@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <title>CoffiiMe_Color_Panel</title>
 
-    <link rel="stylesheet" href="/css/Stylesheet.css">
+    <link rel="stylesheet" th:href="@{/css/Stylesheet.css}">
+
 </head>
 
 <body>
+
 <header>
     <div class="header">
         <div class="logoplace">
@@ -47,21 +49,14 @@
 
 </header>
 
-<div class="placing">
-    <input id="slider" type="range" min="0" max="100" value="50">
-    <div class="colorPanel" style="width:100px; height:50px; border:1px solid black;"></div>
+
+<div class = nav1>
+<canvas id="panel" width="300" height="200"></canvas>
+<div id="display" class = "navCenter"></div>
 </div>
 
-<script>
-    const slider = document.getElementById('slider');
-    const colorPanel = document.querySelector('.colorPanel');
 
-    slider.addEventListener('input', () => {
-        const value = slider.value;
-        colorPanel.style.background = `hsl(${value * 3.6}, 100%, 50%)`;
-    });
-</script>
-
+<script src="js/CorlorPanel.js"></script>
 </body>
 
 <footer>
@@ -75,6 +70,5 @@
         </nav>
     </div>
 </footer>
-
 
 </html>

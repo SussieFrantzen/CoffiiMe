@@ -1,3 +1,10 @@
+#display{
+    width:100px;
+    height:40px;
+    border:1px solid black;
+    margin-top:10px;
+}
+
 html, body {
     height: 100%;
     margin: 0;
@@ -347,17 +354,6 @@ button:hover {
 
 /*///////////////////////////////////////////////////////*/
 
-.placing {
-    padding-top: 100px;
-    padding-left: 130px;
-}
-
-.colorPanel {
-    padding: 150px;
-    background-color: blue;
-}
-
-/*///////////////////////////////////////////////////////*/
 
 .brandFoto {
     height: 200px;
@@ -435,7 +431,7 @@ button:hover {
     padding: 10px 25px;
     font-family: "Baskerville Old Face";
     font-size: 18px;
-    background-color: #543c3c; /* grøn */
+    background-color: #543c3c;
     color: white;
     border: none;
     border-radius: 5px;
