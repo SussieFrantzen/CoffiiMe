@@ -25,13 +25,12 @@ public class UserController {
         
         //app.post("/index", ctx -> login(ctx, connectionPool));
         app.post("/createAccount", ctx -> createUser(ctx, connectionPool));
-        app.post("/login", ctx -> login(ctx,connectionPool));
 
 
 
         // coffee types picture link
         app.get("/americano", ctx -> ctx.render("Americano.html"));
-        app.get("/cafeLatte", ctx -> ctx.render("CafféLatte.html"));
+        app.get("/cafeLatte", ctx -> ctx.render("CaféLatte.html"));
         app.get("/cappuccino", ctx -> ctx.render("Cappuccino.html"));
         app.get("/cortado", ctx -> ctx.render("Cortado.html"));
         app.get("/espresso", ctx -> ctx.render("Espresso.html"));
@@ -43,19 +42,19 @@ public class UserController {
 
 
         //brands link
-        app.get("/coffeDoff", ctx -> ctx.render("CoffeeDoff.html"));
-        app.get("/bean", ctx -> ctx.render("Bean.html"));
-        app.get("/kaf", ctx -> ctx.render("Kaf.html"));
+        app.get("/nesCafe", ctx -> ctx.render("NesCafe.html"));
+        app.get("/merrild", ctx -> ctx.render("Merrild.html"));
+        app.get("/davidoff", ctx -> ctx.render("Davidoff.html"));
 
     }
 
 
 
     public static void createUser(Context ctx, ConnectionPool connectionPool) throws DatabaseException {
-        String firstname = ctx.formParam("firstname");
-        String lastname = ctx.formParam("lastname");
-        String email = ctx.formParam("email");
-        String password = ctx.formParam("password");
+        String firstname = ctx.formParam("createUsername");
+        String lastname = ctx.formParam("createUsername");
+        String email = ctx.formParam("createUsername");
+        String password = ctx.formParam("createPassword");
         UserMapper createAccount = new UserMapper(connectionPool);
 
         if (createAccount.createUser(firstname, lastname, email, password)) {
@@ -66,15 +65,15 @@ public class UserController {
     }
 
     public static void login(Context ctx, ConnectionPool connectionPool) throws DatabaseException {
-        String email = ctx.formParam("email");
-        String password = ctx.formParam("password");
+        String email = ctx.formParam("Login");
+        String password = ctx.formParam("Password");
         UserMapper user = new UserMapper(connectionPool);
 
         Integer user_id = user.login(email,password);
 
         if (user_id != null) {
             ctx.sessionAttribute("user_id", user_id);
-            ctx.redirect("/index");
+            ctx.redirect("/Homepage");
         } else {
             ctx.result("Something went wrong. Check username or password");
         }
