@@ -1,6 +1,7 @@
 package app.persistence;
 
 import app.entities.Coffee;
+import app.entities.CoffeeFavorits;
 import app.entities.Users;
 import app.exception.DatabaseException;
 import app.ingredients.Milk;
@@ -9,6 +10,7 @@ import app.ingredients.beansType.BeanKaf;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,49 +19,37 @@ public class CoffeeMapper {
 
     private ConnectionPool connectionPool;
 
+
     public CoffeeMapper(ConnectionPool connectionPool) {
         this.connectionPool = connectionPool;
     }
 
-    /*
-    public List<Coffee> getExistingCoffee(String beanType, double volume){
-        List<Coffee> existingCoffee = new ArrayList<>();
-        Map<String, Double> ingredient = new HashMap<>();
+    public List<CoffeeFavorits> getFavorit(int user_id) {
+        List<CoffeeFavorits> favoritList = new ArrayList<>();
+        String sql = "SELECT coffeetype, milk, water, bean, brand FROM favorits where user_id = ?";
 
-        String sql =  "SELECT * FROM coffeeTypes where beanBrand = ...." +
-                "from CoffeeTypes";
+        try (Connection connection = connectionPool.getConnection();
+            PreparedStatement ps = connection.prepareStatement(sql)) {
 
-        try (Connection connection = connectionPool.getConnection()) {
-            try (PreparedStatement ps = connection.prepareStatement(sql)) {
-
-                ps.setString(1, beanType);
+                ps.setInt(1, user_id);
                 ResultSet rs = ps.executeQuery();
-                if (rs.next()) {
+                while (rs.next()) {
 
-                    String coffeType = rs.getString("coffeeType");
-                    double milk =  rs.getInt("Milk");
-                    double bean =  rs.getInt("Bean");
-                    double water =  rs.getInt("Water");
-
-                    ingredient.put("Milk", milk);
-                    ingredient.put("Bean", bean);
-                    ingredient.put("Water", water);
-
-                    Coffee coffee = new Coffee(coffeType, volume, ingredient,null);
-                    existingCoffee.add(coffee);
-                    return existingCoffee;
+                    String coffeType = rs.getString("coffeetype");
+                    int milk = rs.getInt("milk");
+                    int bean = rs.getInt("bean");
+                    int water = rs.getInt("water");
+                    String brand = rs.getString("brand");
 
 
+                    CoffeeFavorits favoritCoffe = new CoffeeFavorits(user_id, coffeType, milk, water, bean, brand);
+                    favoritList.add(favoritCoffe);
                 }
-            } catch (SQLException throwables) {
-                throwables.printStackTrace();
-            }
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+                    return favoritList;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
-        return null;
     }
-     */
 
     public Coffee createCoffee(String beanType, int totalVolume, int beanPercentages, int milkPercentages, int waterPercentages) {
 

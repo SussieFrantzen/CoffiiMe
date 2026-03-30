@@ -1,6 +1,7 @@
 package app.controllers;
 
 import app.exception.DatabaseException;
+import app.persistence.CoffeeMapper;
 import app.persistence.UserMapper;
 import io.javalin.Javalin;
 import io.javalin.http.Context;
@@ -18,15 +19,14 @@ public class UserController {
         app.get("/contactUs", ctx -> ctx.render("ContactUs.html"));
         app.get("/createAccount", ctx -> ctx.render("CreateAccount.html"));
         app.get("/creatingPanel", ctx -> ctx.render("CreatingPanel.html"));
-        app.get("/favorites", ctx -> ctx.render("Favorites.html"));
         app.get("/index", ctx -> ctx.render("Index.html"));
         app.get("/login", ctx -> ctx.render("Login.html"));
         app.get("/options", ctx -> ctx.render("Options.html"));
-        
+        app.get("/favorit", ctx -> ctx.render("Favorites.html"));
+
         //app.post("/index", ctx -> login(ctx, connectionPool));
         app.post("/createAccount", ctx -> createUser(ctx, connectionPool));
-        app.post("/login", ctx -> login(ctx,connectionPool));
-
+        app.post("/login", ctx -> login(ctx, connectionPool));
 
 
         // coffee types picture link
@@ -49,8 +49,6 @@ public class UserController {
 
     }
 
-
-
     public static void createUser(Context ctx, ConnectionPool connectionPool) throws DatabaseException {
         String firstname = ctx.formParam("firstname");
         String lastname = ctx.formParam("lastname");
@@ -70,15 +68,17 @@ public class UserController {
         String password = ctx.formParam("password");
         UserMapper user = new UserMapper(connectionPool);
 
-        Integer user_id = user.login(email,password);
+        Integer user_id = user.login(email, password);
 
         if (user_id != null) {
             ctx.sessionAttribute("user_id", user_id);
             ctx.redirect("/index");
+            ctx.result("true");
         } else {
             ctx.result("Something went wrong. Check username or password");
         }
     }
+
 
     public static void logout() {
 
