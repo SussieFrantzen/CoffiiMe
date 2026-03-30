@@ -1,5 +1,6 @@
 package app.persistence;
 
+import app.entities.Users;
 import app.exception.DatabaseException;
 
 import java.sql.Connection;
@@ -15,7 +16,7 @@ public class UserMapper {
         this.connectionPool = connectionPool;
     }
 
-    public boolean login(String email, String password) {
+    public Integer login(String email, String password) throws DatabaseException {
         String sql = """
                 SELECT u.user_id, u.firstname, u.lastname, u.email, a.password
                 FROM users u
@@ -30,11 +31,16 @@ public class UserMapper {
                 preparedStatement.setString(2, password);
 
                 ResultSet resultSet = preparedStatement.executeQuery();
-                return resultSet.next();
+                if(resultSet.next()){
+                    return resultSet.getInt("user_id");
+                }
+                else{
+                    return null;
+                }
+
             }
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
-            return false;
+            throw new DatabaseException("login fejlede", e.getMessage());
         }
     }
 

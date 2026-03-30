@@ -2,15 +2,21 @@ package app.persistence;
 
 import app.entities.Coffee;
 import app.entities.Users;
+import app.exception.DatabaseException;
 import app.ingredients.Milk;
 import app.ingredients.Water;
 import app.ingredients.beansType.BeanKaf;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class CoffeeMapper {
 
     private ConnectionPool connectionPool;
+
     public CoffeeMapper(ConnectionPool connectionPool) {
         this.connectionPool = connectionPool;
     }
@@ -55,20 +61,39 @@ public class CoffeeMapper {
     }
      */
 
-    public Coffee createCoffee(String beanType, int totalVolume, int beanPercentages, int milkPercentages, int waterPercentages){
+    public Coffee createCoffee(String beanType, int totalVolume, int beanPercentages, int milkPercentages, int waterPercentages) {
 
         Coffee coffee = new BeanKaf(23);
-        coffee = new Water(coffee,23);
-        coffee = new Milk(coffee,23);
+        coffee = new Water(coffee, 23);
+        coffee = new Milk(coffee, 23);
 
         return coffee;
     }
 
-    public boolean addToFavorites(Users user_id, Coffee coffename){
+    public boolean addToFavorites(Users user_id, Coffee coffename) {
         return true;
     }
 
-    public List<Coffee> getFavorites(Users user_id){
+    public List<Coffee> getFavorites(Users user_id) {
         return null;
     }
+
+
+    public boolean addCoffeTypeToFavorit(String coffeetype, int userId) throws DatabaseException {
+        String sql = "INSERT INTO favorits (user_id, coffeetype, milk, water, bean, brand)\n SELECT ?, " +
+                "coffeetype, milk_ml, water_ml, beans_g, NULL FROM coffeetypes WHERE coffeetype = ?";
+
+        try (Connection conn = connectionPool.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ps.setInt(1, userId);
+            ps.setString(2, coffeetype);
+            int rows = ps.executeUpdate();
+            return rows > 0;
+
+        } catch (SQLException e) {
+            throw new DatabaseException("Kunne ikke kopiere kaffe til favorit.", e.getMessage());
+        }
+    }
+
 }

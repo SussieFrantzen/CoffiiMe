@@ -1,5 +1,6 @@
 package app;
 
+import app.controllers.CoffeController;
 import app.persistence.CoffeeMapper;
 import io.javalin.Javalin;
 import io.javalin.rendering.template.JavalinThymeleaf;
@@ -32,6 +33,7 @@ public class App {
 
         app.get("/", ctx -> ctx.render("Index.html"));
         UserController.addRoutes(app, connectionPool);
+        CoffeController.addRoutes(app,connectionPool);
 
     }
 }

@@ -1,6 +1,7 @@
 package app.controllers;
 
 import app.entities.Coffee;
+import app.exception.DatabaseException;
 import app.persistence.CoffeeMapper;
 import app.persistence.ConnectionPool;
 import io.javalin.Javalin;
@@ -10,6 +11,8 @@ import java.awt.*;
 
 public class CoffeController {
 
+
+
     public static void addRoutes(Javalin app, ConnectionPool connectionPool) {
         //app.post("/index", ctx -> getExistingCoffee(ctx, connectionPool));
         //app.post("/index", ctx -> createCoffee(ctx, connectionPool));
@@ -17,6 +20,23 @@ public class CoffeController {
 
 
         app.post("/slider", ctx -> createCoffee(ctx, connectionPool));
+        app.post("/copi", ctx -> {
+            Integer userId = ctx.sessionAttribute("user_id");
+            if (userId == null) {
+                ctx.status(401).result("Du skal logge ind først!");
+                return;
+            }
+            String coffeetype = ctx.formParam("coffeetype");
+            CoffeeMapper coffeeMapper = new CoffeeMapper(connectionPool);
+                boolean success = coffeeMapper.addCoffeTypeToFavorit(coffeetype, userId);
+            if (success) {
+                ctx.result("Kaffen blev tilføjet til dine favoritter!");
+            } else {
+                ctx.result("Noget gik galt, prøv igen.");
+            }
+        });
+
+
     }
 
 
@@ -88,4 +108,7 @@ public class CoffeController {
     public static void getFavorites() {
 
     }
+
+
+
 }

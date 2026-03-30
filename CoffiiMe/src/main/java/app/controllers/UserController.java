@@ -70,7 +70,10 @@ public class UserController {
         String password = ctx.formParam("password");
         UserMapper user = new UserMapper(connectionPool);
 
-        if (user.login(email, password)) {
+        Integer user_id = user.login(email,password);
+
+        if (user_id != null) {
+            ctx.sessionAttribute("user_id", user_id);
             ctx.redirect("/index");
         } else {
             ctx.result("Something went wrong. Check username or password");
