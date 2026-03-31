@@ -23,7 +23,6 @@ public class CoffeeMapper {
 
     private ConnectionPool connectionPool;
 
-
     public CoffeeMapper(ConnectionPool connectionPool) {
         this.connectionPool = connectionPool;
     }

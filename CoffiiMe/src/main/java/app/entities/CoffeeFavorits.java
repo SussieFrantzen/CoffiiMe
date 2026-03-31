@@ -7,15 +7,15 @@ public class CoffeeFavorits {
     private String coffeetype;
     private int milk;
     private int water;
-    private int beans;
+    private int bean;
     private String brand;
 
-    public CoffeeFavorits(int user_id, String coffeetype, int milk, int water, int beans, String brand) {
+    public CoffeeFavorits(int user_id, String coffeetype, int milk, int water, int bean, String brand) {
         this.user_id = user_id;
         this.coffeetype = coffeetype;
         this.milk = milk;
         this.water = water;
-        this.beans = beans;
+        this.bean = bean;
         this.brand = brand;
     }
 
@@ -57,11 +57,11 @@ public class CoffeeFavorits {
     }
 
     public int getBeans() {
-        return beans;
+        return bean;
     }
 
     public void setBeans(int beans) {
-        this.beans = beans;
+        this.bean = beans;
     }
 
     public String getBrand() {
@@ -72,11 +72,11 @@ public class CoffeeFavorits {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         CoffeeFavorits that = (CoffeeFavorits) o;
-        return user_id == that.user_id && milk == that.milk && water == that.water && beans == that.beans && Objects.equals(coffeetype, that.coffeetype);
+        return user_id == that.user_id && milk == that.milk && water == that.water && bean == that.bean && Objects.equals(coffeetype, that.coffeetype);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(user_id, coffeetype, milk, water, beans);
+        return Objects.hash(user_id, coffeetype, milk, water, bean);
     }
 }

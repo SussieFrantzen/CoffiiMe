@@ -5,7 +5,7 @@ import app.persistence.CoffeeMapper;
 import app.persistence.ConnectionPool;
 import io.javalin.Javalin;
 import io.javalin.http.Context;
-
+import java.util.List;
 import java.awt.*;
 
 public class CoffeController {
@@ -35,7 +35,7 @@ public class CoffeController {
         });
         
         
-        app.post("/favorit", ctx->{
+        app.get("/favorit", ctx->{
             Integer userId = ctx.sessionAttribute("user_id");
 
             if (userId == null) {
@@ -43,7 +43,10 @@ public class CoffeController {
                 return;
             }
             CoffeeMapper mapper = new CoffeeMapper(connectionPool);
-            mapper.getFavorit(userId);
+            List<CoffeeFavorits> favoritList = mapper.getFavorit(userId);
+
+            ctx.attribute("favorit", favoritList);
+            ctx.render("CoffiiMe_Favorites.html");
         });
     }
 
