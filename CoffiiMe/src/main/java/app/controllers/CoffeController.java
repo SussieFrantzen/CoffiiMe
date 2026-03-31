@@ -7,15 +7,12 @@ import io.javalin.Javalin;
 import io.javalin.http.Context;
 import java.util.List;
 import java.awt.*;
+import java.util.Map;
 
 public class CoffeController {
 
 
-
     public static void addRoutes(Javalin app, ConnectionPool connectionPool) {
-        //app.post("/index", ctx -> getExistingCoffee(ctx, connectionPool));
-        //app.post("/index", ctx -> createCoffee(ctx, connectionPool));
-        //app.get("/color", ctx -> ctx.json(new Integer[]{255,200,5}));
 
         app.post("/slider", ctx -> createCoffee(ctx, connectionPool));
         app.post("/copi", ctx -> {
@@ -33,33 +30,24 @@ public class CoffeController {
                 ctx.result("Noget gik galt, prøv igen.");
             }
         });
-        
-        
+
         app.get("/favorit", ctx->{
+
+            CoffeeMapper mapper = new CoffeeMapper(connectionPool);
             Integer userId = ctx.sessionAttribute("user_id");
+            List<CoffeeFavorits> favoritList = mapper.getFavorit(userId);
+
+
+            ctx.render("Favorites.html", Map.of("favoritList", favoritList));
 
             if (userId == null) {
                 ctx.status(401).result("Du skal logge ind først!");
-                return;
             }
-            CoffeeMapper mapper = new CoffeeMapper(connectionPool);
-            List<CoffeeFavorits> favoritList = mapper.getFavorit(userId);
 
-            ctx.attribute("favorit", favoritList);
-            ctx.render("CoffiiMe_Favorites.html");
+
         });
     }
 
-    /*
-    public static void getExistingCoffee(Context ctx, ConnectionPool connectionPool) {
-        String beanType = ctx.formParam("");
-        String coffeeType = ctx.formParam("");
-        int totalVolume = Integer.parseInt(ctx.formParam(""));
-
-        CoffeeMapper coffeeMapper = new CoffeeMapper(connectionPool);
-        coffeeMapper.getExistingCoffee(beanType, totalVolume);
-    }
-     */
 
     public static void createCoffee(Context ctx, ConnectionPool connectionPool) {
 

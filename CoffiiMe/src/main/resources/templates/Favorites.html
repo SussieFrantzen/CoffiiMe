@@ -50,6 +50,7 @@
 
 
 <nav class="navCenter">
+
     <table>
         <thead>
         <tr>
@@ -60,21 +61,24 @@
             <th>Brand</th>
         </tr>
         </thead>
-        <tbody>
-        <tr th:each="fav : ${favorit}">
-            <td th:text="${fav.coffetype}"></td>
+
+        <tbody class = "bodyText" >
+        <tr th:each="fav : ${favoritList}">
+            <td th:text="${fav.coffeetype}"></td>
             <td th:text="${fav.milk}"></td>
             <td th:text="${fav.water}"></td>
             <td th:text="${fav.bean}"></td>
             <td th:text="${fav.brand}"></td>
+
         </tr>
         </tbody>
-
-
     </table>
 
-</nav>
+    <form action = "/favorit" method = "get">
+        <button type = "submit">Se dine favoritter </button>
+    </form>
 
+</nav>
 
 
 </body>
