@@ -22,7 +22,7 @@ public class UserController {
         app.get("/index", ctx -> ctx.render("Index.html"));
         app.get("/login", ctx -> ctx.render("Login.html"));
         app.get("/options", ctx -> ctx.render("Options.html"));
-        app.get("/favorit", ctx -> ctx.render("Favorites.html"));
+        app.get("/favoritsite", ctx -> ctx.render("Favorites.html"));
 
         //app.post("/index", ctx -> login(ctx, connectionPool));
         app.post("/createAccount", ctx -> createUser(ctx, connectionPool));

@@ -23,7 +23,6 @@ public class CoffeeMapper {
 
     private ConnectionPool connectionPool;
 
-
     public CoffeeMapper(ConnectionPool connectionPool) {
         this.connectionPool = connectionPool;
     }
@@ -37,16 +36,16 @@ public class CoffeeMapper {
 
                 ps.setInt(1, user_id);
                 ResultSet rs = ps.executeQuery();
+                
                 while (rs.next()) {
-
+                    
                     String coffeType = rs.getString("coffeetype");
                     int milk = rs.getInt("milk");
                     int bean = rs.getInt("bean");
                     int water = rs.getInt("water");
                     String brand = rs.getString("brand");
-
-
-                    CoffeeFavorits favoritCoffe = new CoffeeFavorits(user_id, coffeType, milk, water, bean, brand);
+                    
+                    CoffeeFavorits favoritCoffe = new CoffeeFavorits(coffeType, ""+(milk), ""+(water), ""+(bean), brand);
                     favoritList.add(favoritCoffe);
                 }
                     return favoritList;

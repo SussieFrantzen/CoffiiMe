@@ -19,7 +19,7 @@
 
 
         <ul class="account">
-            <li><a th:href="@{/favorit}">Favorit</a></li>
+            <li><a th:href="@{/favoritsite}">Favorit</a></li>
             <li><a th:href="@{/login}"> Login </a></li>
             <li><a th:href="@{/createAccount}"> Create Account </a></li>
         </ul>
@@ -50,6 +50,7 @@
 
 
 <nav class="navCenter">
+
     <table>
         <thead>
         <tr>
@@ -60,24 +61,24 @@
             <th>Brand</th>
         </tr>
         </thead>
-        <tbody>
-        <tr th:each="fav : ${favorit}">
-            <td th:text="${fav.coffetype}"></td>
+
+        <tbody class = "bodyText" >
+        <tr th:each="fav : ${favoritList}">
+            <td th:text="${fav.coffeetype}"></td>
             <td th:text="${fav.milk}"></td>
             <td th:text="${fav.water}"></td>
             <td th:text="${fav.bean}"></td>
             <td th:text="${fav.brand}"></td>
+
         </tr>
         </tbody>
-
-        <tr th:each="favorit : ${favoritList}">
-            <td th:text="${favorit.brand}"></td>
-        </tr>
-
     </table>
 
-</nav>
+    <form action = "/favorit" method = "get">
+        <button type = "submit">Se dine favoritter </button>
+    </form>
 
+</nav>
 
 
 </body>

@@ -5,17 +5,25 @@ import java.util.Objects;
 public class CoffeeFavorits {
     private int user_id;
     private String coffeetype;
-    private int milk;
-    private int water;
-    private int beans;
+    private String milk;
+    private String water;
+    private String bean;
     private String brand;
 
-    public CoffeeFavorits(int user_id, String coffeetype, int milk, int water, int beans, String brand) {
+    public CoffeeFavorits(String coffeetype, String milk, String water, String bean, String brand) {
+        this.coffeetype = coffeetype;
+        this.milk = milk;
+        this.water = water;
+        this.bean = bean;
+        this.brand = brand;
+    }
+
+    public CoffeeFavorits(int user_id, String coffeetype, String milk, String water, String bean, String brand) {
         this.user_id = user_id;
         this.coffeetype = coffeetype;
         this.milk = milk;
         this.water = water;
-        this.beans = beans;
+        this.bean = bean;
         this.brand = brand;
     }
 
@@ -36,11 +44,11 @@ public class CoffeeFavorits {
         this.coffeetype = coffeetype;
     }
 
-    public int getMilk() {
+    public String getMilk() {
         return milk;
     }
 
-    public void setMilk(int milk) {
+    public void setMilk(String milk) {
         this.milk = milk;
     }
 
@@ -48,20 +56,20 @@ public class CoffeeFavorits {
         this.brand = brand;
     }
 
-    public int getWater() {
+    public String getWater() {
         return water;
     }
 
-    public void setWater(int water) {
+    public void setWater(String water) {
         this.water = water;
     }
 
-    public int getBeans() {
-        return beans;
+    public String getBean() {
+        return bean;
     }
 
-    public void setBeans(int beans) {
-        this.beans = beans;
+    public void setBean(String beans) {
+        this.bean = beans;
     }
 
     public String getBrand() {
@@ -69,14 +77,25 @@ public class CoffeeFavorits {
     }
 
     @Override
+    public String toString() {
+        return "CoffeeFavorits{" +
+                "coffeetype='" + coffeetype + '\'' +
+                ", milk=" + milk +
+                ", water=" + water +
+                ", bean=" + bean +
+                ", brand='" + brand + '\'' +
+                '}';
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         CoffeeFavorits that = (CoffeeFavorits) o;
-        return user_id == that.user_id && milk == that.milk && water == that.water && beans == that.beans && Objects.equals(coffeetype, that.coffeetype);
+        return milk == that.milk && water == that.water && bean == that.bean && Objects.equals(coffeetype, that.coffeetype) && Objects.equals(brand, that.brand);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(user_id, coffeetype, milk, water, beans);
+        return Objects.hash(coffeetype, milk, water, bean, brand);
     }
 }
