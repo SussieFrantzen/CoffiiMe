@@ -48,6 +48,12 @@
 
 </header>
 
+<main>
+    <nav class="navCenter">
+        <div class="menu-popup-container">
+            <div id="popupMessage" class="popup-message"></div>
+        </div>
+    </nav>
 
 <nav class="navCenter">
     <div class="tableWrapper">
@@ -76,30 +82,28 @@
     </div>
 
     <form action="/favorit" method="get">
-        <button type="submit">Se dine favoritter</button>
+        <button class="favorite-btn" type="submit">Se dine favoritter</button>
     </form>
 
 </nav>
+    <p style="padding-top: 3%"></p>
 
+</main>
 
-</body>
-
-
-<footer>
+<footer class="footer">
     <div class="footer-content">
-
-        <nav class="navbar">
-            <ul class="footer">
-                <li><a th:href="@{/aboutUs}"> About us </a></li>
-                <li><a th:href="@{/contactUs}"> Contact us </a></li>
-            </ul>
-        </nav>
+        <ul class="footer-links">
+            <li><a th:href="@{/aboutUs}"> About us </a></li>
+            <li><a th:href="@{/contactUs}"> Contact us </a></li>
+        </ul>
     </div>
 </footer>
 
+<script src="/js/Favorites.js"></script>
+
+</body>
 
 </html>
-
 
 
 

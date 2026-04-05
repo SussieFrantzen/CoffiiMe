@@ -1,7 +1,6 @@
 package app;
 
 import app.controllers.CoffeController;
-import app.persistence.CoffeeMapper;
 import io.javalin.Javalin;
 import io.javalin.rendering.template.JavalinThymeleaf;
 
@@ -10,7 +9,6 @@ import app.config.ThymeleafConfig;
 import app.controllers.UserController;
 import app.persistence.ConnectionPool;
 
-import java.util.Map;
 
 
 public class App {

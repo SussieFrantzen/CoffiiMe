@@ -49,9 +49,11 @@
 
 </header>
 
-<p style="padding-top: 70px;"> </p>
+<main>
+<p style="padding-top: 30px;"> </p>
 
-<nav class="navCenter">
+<nav class="navCentrum">
+
     <div class="brandFoto">
         <a th:href="@{/kaf}" class="brandItem">
             <img src="/img/kaf.png">
@@ -67,24 +69,17 @@
     </div>
 </nav>
 
+</main>
 
-
-
-
-</body>
-
-
-<footer>
+<footer class="footer">
     <div class="footer-content">
-
-        <nav class="navbar">
-            <ul class="footer">
-                <li><a th:href="@{/aboutUs}"> About us </a></li>
-                <li><a th:href="@{/contactUs}"> Contact us </a></li>
-            </ul>
-        </nav>
+        <ul class="footer-links">
+            <li><a th:href="@{/aboutUs}"> About us </a></li>
+            <li><a th:href="@{/contactUs}"> Contact us </a></li>
+        </ul>
     </div>
 </footer>
 
+</body>
 
 </html>

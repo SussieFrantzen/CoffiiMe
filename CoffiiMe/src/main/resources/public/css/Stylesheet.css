@@ -1,18 +1,20 @@
-#display{
-    width:100px;
-    height:40px;
-    border:1px solid black;
-    margin-top:10px;
+#display {
+    width: 100px;
+    height: 40px;
+    border: 1px solid black;
+    margin-top: 10px;
 }
 
 html, body {
     height: 100%;
     margin: 0;
+    padding: 0;
 }
 
 body {
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
 }
 
 
@@ -21,16 +23,20 @@ body {
     align-items: flex-start;
 }
 
+main {
+    flex: 1;
+}
+
 
 /* _______________ logo__________________  */
 
 .logoplace {
-    padding-left: 30px;
-
+    padding-left: 2vh;
+    padding-top: 2vh;
 }
 
 .logoSize {
-    width: 35%;
+    width: clamp(160px, 23%, 260px);
     heigth: auto;
 }
 
@@ -39,29 +45,31 @@ body {
 .h1 {
     font-family: "Baskerville Old Face";
     font-weight: 600;
-    font-size: 35px;
+    font-size: clamp(24px, 4vw, 35px);
 }
 
 .account {
-
     display: flex;
     list-style: none;
     margin-left: auto;
-    gap: 20px;
+    gap: clamp(10px, 2vw, 30px);
     font-family: "Baskerville Old Face";
     font-weight: 500;
     font-size: 30px;
-    padding: 0 20px;
+    flex-wrap: nowrap;
+    padding: 0 2%;
     color: black;
+
 }
 
 .account a {
+    white-space: nowrap;
     text-decoration: none;
     color: black;
     font-family: "Baskerville Old Face";
     font-weight: 500;
-    font-size: 25px;
-    padding: 20px 0px;
+    font-size: clamp(20px, 2vw, 22px);
+    padding: 1.5% 0;
 }
 
 .account li.right {
@@ -71,17 +79,21 @@ body {
 .account a:hover {
     opacity: 0.7;
     text-decoration: underline;
+
 }
 
+/*_________ body text_________*/
 
 .bodyText {
     text-decoration: none;
     color: black;
     font-family: "Baskerville Old Face";
     font-weight: 500;
-    font-size: 22px;
-    flex: 2;
-    max-width: 1050px;
+    font-size: clamp(20px, 1.5vw, 22px);
+    width: 100%;
+    max-width: 70%;
+    margin: 0;
+    padding-left: 5%;
     text-align: left;
 }
 
@@ -90,15 +102,19 @@ body {
     color: black;
     font-family: "Baskerville Old Face";
     font-weight: 500;
-    font-size: 22px;
-    flex: 2;
-    max-width: 1500px;
+    font-size: clamp(18px, 2vw, 22px);
+    max-width: 60%;
     text-align: center;
+    margin: 0 auto;
+    padding: 10px;
 }
 
 
 /* ________________ padding __________________  */
 
+.top-nav {
+    padding-top: 2%;
+}
 
 .navheader {
     padding: 50px 95px;
@@ -120,7 +136,6 @@ body {
 .navCenter {
     padding-top: 30px;
     text-align: center;
-
     margin: 0 auto;
 
 }
@@ -145,24 +160,23 @@ body {
 .menu {
     display: grid;
     grid-template-columns: 1fr 1fr;
-
     align-items: center;
     max-width: 750px;
     margin: 0 auto;
     list-style: none;
     padding: 0;
-    gap: 40px;
+    gap: clamp(10px, 4vw, 40px);
 }
 
 .left {
     display: flex;
-    gap: 30px;
+    gap: clamp(10px, 3vw, 30px);
     justify-content: flex-end;
 }
 
 .right {
     display: flex;
-    gap: 30px;
+    gap: clamp(10px, 3vw, 30px);
     justify-content: flex-start;
 }
 
@@ -172,59 +186,40 @@ body {
     color: black;
     font-family: "Baskerville Old Face";
     font-weight: 500;
-    font-size: 25px;
-    padding: 20px 0;
+    font-size: clamp(16px, 2vw, 25px);
+    padding: clamp(10px, 2vw, 20px) 0;
     white-space: nowrap;
 }
 
 .menu a:hover {
     opacity: 0.7;
     text-decoration: underline;
+
 }
-
-/* ________________ btn __________________  */
-
-
-.btn {
-    background-color: darkgreen;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    padding: 4px 8px;
-    font-size: 20px;
-    cursor: pointer;
-    border: none;
-}
-
-.book-btn:hover {
-    background-color: mediumseagreen;
-    padding: 10px 18px;
-}
-
-
-/* ________________ form __________________  */
 
 
 /* ________________ background __________________  */
 body {
-    background-color: #F8F6E6; /* eller hvilken farve du vil */
+    background-color: #F8F6E6;
+    padding-bottom: 100px;
 }
 
 
 /* ________________ Footer __________________  */
 .footer {
     position: fixed;
-    bottom: 20px;
-    left: 0;
     width: 100%;
+    height: 35px;
     display: flex;
+    flex-wrap: nowrap;
     align-items: center;
     justify-content: center;
     list-style: none;
-    gap: 60px;
+    gap: clamp(20px, 5vw, 60px);
     background-color: black;
     z-index: 1000;
-    padding: 20px 0;
+    padding: 0;
+    bottom: 2vh;
 }
 
 .footer-content {
@@ -232,7 +227,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 50px 0;
+    padding: 35px 0;
     text-align: center;
 }
 
@@ -243,14 +238,22 @@ body {
     color: white;
     font-family: "Baskerville Old Face";
     font-weight: 500;
-    font-size: 25px;
-
-    line-height: 40px;
-    padding: 0;
+    font-size: clamp(14px, 2vw, 25px);
+    line-height: 10px;
+    padding: clamp(5px, 1vw, 10px);
 }
 
 .footer a:hover {
     text-decoration: underline;
+}
+
+.footer-links {
+    list-style: none;
+    display: flex;
+    gap: clamp(20px, 5vw, 35px);
+    margin: auto;
+    padding: 0;
+    align-items: center;
 }
 
 
@@ -259,7 +262,7 @@ body {
     left: 0;
     z-index: 0;
     width: 100%;
-    height: 40px;
+    height: 20px;
     background-color: black;
 }
 
@@ -294,14 +297,20 @@ body {
     border: 1px solid #ccc;
 }
 
-button {
+.login-container button {
     width: 100%;
-    padding: 10px;
+    padding: 10px 0;
+}
+
+button {
+    display: inline-block;
+    padding: 10px 20px;
     background-color: #6b4f4f;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-family: "Baskerville Old Face";
 }
 
 button:hover {
@@ -313,37 +322,72 @@ button:hover {
 
 .foto {
     display: flex;
-    gap: 200px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: clamp(20px, 5vw, 60px);
+    max-width: 80%;
+    margin: 0 auto;
 }
 
 .foto a:hover {
     opacity: 0.7;
-}
-
-
-.item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.item img {
-    width: 130px;
-    height: 130px;
-    object-fit: contain;
+    color: black;
 }
 
 .item {
     width: 150px;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+}
+
+.item:visited,
+.item:active {
+    color: black;
+    text-decoration: none;
+}
+
+.item:hover {
+    color: black;
+    text-decoration: underline;
+}
+
+
+.item img {
+    width: auto;
+    height: 100%;
+    max-height: 130px;
+    object-fit: contain;
+    display: block;
+}
+
+.item a {
+    color: black;
+}
+
+.item a:hover {
+    text-decoration: underline;
+    opacity: 0.7%;
+    color: black;
+}
+
+.item .bodyText {
+    white-space: nowrap;
+    text-align: center;
+    padding: 0;
+    margin-top: 5px;
+    max-width: none;
+    width: auto;
 }
 
 
 .bigFoto {
-    height: 400px;
+    height: clamp(200px, 20vw, 300px);
     flex-shrink: 0;
+
 }
 
 .bigFoto img {
@@ -352,13 +396,17 @@ button:hover {
 }
 
 
-/*///////////////////////////////////////////////////////*/
+/*-----------brand logo---------------*/
 
 
 .brandFoto {
-    height: 200px;
     display: flex;
-    gap: 100px;
+    flex-wrap: nowrap;
+    justify-content: center;
+    height: 200px;
+    max-width: 60%;
+    gap: clamp(15px, 2vw, 30px);
+    margin: 0 auto;
 }
 
 .brandFoto a:hover {
@@ -370,11 +418,13 @@ button:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
+    flex: 1 1 120px;
+    max-width: 180px;
 }
 
 .brandItem img {
-    width: 200px;
-    height: 200px;
+    width: auto;
+    height: clamp(90px, 12vw, 190px);
     object-fit: contain;
 }
 
@@ -383,6 +433,7 @@ button:hover {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: auto;
 }
 
 
@@ -392,8 +443,11 @@ button:hover {
     background-color: #F2D8AA;
     padding: 20px;
     border-radius: 10px;
-    width: 200px;
+    min-width: 200px;
     text-align: center;
+    max-height: 240px;
+    flex: 0 1 auto;
+    box-sizing: border-box;
 }
 
 
@@ -423,19 +477,20 @@ button:hover {
 }
 
 
-
 /*-----------add buttom---------------*/
 
 .favorite-btn {
     display: inline-block;
-    padding: 10px 25px;
+    padding: clamp(8px, 1vw, 12px) clamp(15px, 2vw, 25px);
     font-family: "Baskerville Old Face";
-    font-size: 18px;
+    font-size: clamp(16px, 2vw, 18px);
     background-color: #543c3c;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    text-align: center;
+    white-space: nowrap;
 }
 
 .favorite-btn:hover {
@@ -468,35 +523,38 @@ button:hover {
     opacity: 0.7;
     white-space: nowrap;
 }
+
 /*-----------tabel favorit---------------*/
 
 .tableWrapper {
-    width: 100%;
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
     overflow-x: auto;
 }
 
 .tableStyle {
     border-collapse: collapse;
-    margin: 40px auto;
-    width: 80%;
+    margin: 40px 0;
+    width: 100%;
 
     font-family: "Baskerville Old Face";
     font-weight: 500;
-    font-size: 22px;
+    font-size: clamp(16px, 2vw, 22px);
     color: black;
 }
 
 
 .tableStyle th,
 .tableStyle td {
-    padding: 15px 35px;
+    padding: clamp(15px, 2vw, 25px);
     text-align: left;
     white-space: nowrap;
 }
 
 
 .tableStyle thead th {
-    font-size: 24px;
+    font-size: clamp(18px, 2.5vw, 24px);
     font-weight: 400;
     border-bottom: 2px solid black;
 }
@@ -511,3 +569,24 @@ button:hover {
     background-color: #f8f6e6;
 }
 
+
+/*__________ frame display________ */
+
+.boxDisplayContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.boxDisplay {
+    flex: 0 1 auto;
+    max-width: 80%;
+    min-width: 200px;
+    padding: 15px;
+    box-sizing: border-box;
+    text-align: center;
+}

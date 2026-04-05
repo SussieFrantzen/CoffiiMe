@@ -119,7 +119,7 @@ public class CoffeeMapper {
 
 
     public boolean addCoffeTypeToFavorit(String coffeetype, int userId) throws DatabaseException {
-        String sql = "INSERT INTO favorits (user_id, coffeetype, milk, water, bean, brand)\n SELECT ?, " +
+        String sql = "INSERT INTO favorits (user_id, coffeetype, milk, water, bean, brand) SELECT ?, " +
                 "coffeetype, milk_ml, water_ml, beans_g, NULL FROM coffeetypes WHERE coffeetype = ?";
 
         try (Connection conn = connectionPool.getConnection();

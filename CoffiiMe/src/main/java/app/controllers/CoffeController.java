@@ -32,11 +32,10 @@ public class CoffeController {
         });
 
         app.get("/favorit", ctx->{
-
-            CoffeeMapper mapper = new CoffeeMapper(connectionPool);
             Integer userId = ctx.sessionAttribute("user_id");
-            List<CoffeeFavorits> favoritList = mapper.getFavorit(userId);
+            CoffeeMapper mapper = new CoffeeMapper(connectionPool);
 
+            List<CoffeeFavorits> favoritList = mapper.getFavorit(userId);
 
             ctx.render("Favorites.html", Map.of("favoritList", favoritList));
 
